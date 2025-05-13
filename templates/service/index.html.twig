@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Services - Vaca-Meet{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Gestion des Services</h1>
+            <button class="btn btn-primary" disabled>
+                <i class="bi bi-plus-circle me-2"></i>Ajouter un service
+            </button>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle-fill me-2"></i>
+                    La fonctionnalité de gestion des services sera bientôt disponible. Vous pourrez ajouter, modifier et supprimer des services pour votre camping.
+                </div>
+                
+                <div class="mt-4">
+                    <h5>Exemples de services:</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Disponibilité</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Piscine</td>
+                                <td>Piscine extérieure chauffée</td>
+                                <td>9h - 20h</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" disabled>Modifier</button>
+                                    <button class="btn btn-sm btn-outline-danger" disabled>Supprimer</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Restaurant</td>
+                                <td>Restaurant avec terrasse</td>
+                                <td>12h - 14h, 19h - 22h</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" disabled>Modifier</button>
+                                    <button class="btn btn-sm btn-outline-danger" disabled>Supprimer</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

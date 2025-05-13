@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Compte - Vaca-Meet{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <h1 class="mb-4">Gestion de compte</h1>
+    </div>
+    
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Informations du compte</h5>
+                <p class="card-text text-muted mb-4">Gérez vos informations personnelles et les paramètres de votre compte.</p>
+                
+                <div class="list-group list-group-flush">
+                    <a href="{{ path('app_account_edit') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <i class="bi bi-person-circle me-3 text-primary"></i>
+                            <span>Modifier mes informations</span>
+                        </div>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    
+                    <a href="{{ path('app_theme_edit') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <i class="bi bi-palette me-3 text-primary"></i>
+                            <span>Thème de l'application</span>
+                        </div>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">À propos de votre compte</h5>
+                <div class="list-group list-group-flush mb-3">
+                    <div class="list-group-item">
+                        <div class="text-muted small">Nom du camping</div>
+                        <div>{{ user.username }}</div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="text-muted small">Email</div>
+                        <div>{{ user.email }}</div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="text-muted small">Thème actuel</div>
+                        <div>
+                            {% if user.theme == 'default' %}
+                                Bleu (par défaut)
+                            {% elseif user.theme == 'light-blue' %}
+                                Bleu clair
+                            {% elseif user.theme == 'light-green' %}
+                                Vert clair
+                            {% elseif user.theme == 'light-pink' %}
+                                Rose clair
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <form method="post" action="{{ path('app_account_delete') }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action ne peut pas être annulée.');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                    <button class="btn btn-outline-danger w-100">
+                        <i class="bi bi-trash me-1"></i> Supprimer mon compte
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

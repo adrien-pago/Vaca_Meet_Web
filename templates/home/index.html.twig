@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Vaca-Meet{% endblock %}
+
+{% block body %}
+<div class="home-container">
+    <div class="home-header mb-4">
+        <h1 class="text-center themed-title">Bienvenue sur Vaca-Meet</h1>
+        <p class="text-center lead">La plateforme de gestion pour les campings et clubs de vacances</p>
+    </div>
+
+    {% if app.user %}
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2 class="dashboard-title themed-title">Tableau de bord</h2>
+                <p class="dashboard-subtitle">Accédez rapidement à toutes vos fonctionnalités</p>
+            </div>
+            
+            <div class="cards-wrapper">
+                <div class="cards row row-cols-1 row-cols-md-3 g-4">
+                    {% if is_granted('ROLE_MANAGER') %}
+                    <div class="col">
+                        <div class="feature-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Mon Compte</h5>
+                                <p class="card-text">Gérez les informations de votre camping</p>
+                                <a href="{{ path('app_account_index') }}" class="btn btn-primary card-btn">Accéder</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="col">
+                        <div class="feature-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Services</h5>
+                                <p class="card-text">Gérez les comptes des services de votre camping</p>
+                                <a href="{{ path('app_service_index') }}" class="btn btn-primary card-btn">Accéder</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="feature-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-calendar-week"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Planning</h5>
+                                <p class="card-text">Organisez les plannings hebdomadaires</p>
+                                <a href="{{ path('app_planning_index') }}" class="btn btn-primary card-btn">Accéder</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="welcome-container">
+            <div class="card welcome-card shadow">
+                <div class="card-body text-center">
+                    <h2>Commencez dès maintenant</h2>
+                    <p>Connectez-vous ou créez un compte pour gérer votre camping</p>
+                    <div class="welcome-buttons">
+                        <a href="{{ path('app_login') }}" class="btn btn-primary me-2">Connexion</a>
+                        <a href="{{ path('app_register') }}" class="btn btn-outline-primary">Inscription</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<style>
+    .themed-title {
+        color: var(--theme-color) !important;
+        font-weight: bold;
+    }
+</style>
+{% endblock %} 

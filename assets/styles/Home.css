@@ -1,0 +1,385 @@
+/* Styles pour la page d'accueil */
+
+:root {
+  --primary-color: #7571f9;
+  --secondary-color: #6259ca;
+  --accent-color: #5a9bff;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --transition-speed: 0.3s;
+  --border-radius: 12px;
+}
+
+/* Home Container */
+.home-container {
+  padding-top: 2rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+/* Commenté pour permettre à la classe themed-title d'appliquer les couleurs du thème */
+/* 
+.home-header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+*/
+
+/* Nouvelle règle pour le titre h1 qui respecte le thème */
+.home-header .themed-title, .dashboard-title.themed-title {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  display: inline-block;
+}
+
+.dashboard-title.themed-title {
+  font-size: 1.8rem;
+}
+
+.home-header p {
+  font-size: 1.2rem;
+  color: var(--gray-600);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  z-index: 1;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.dashboard-subtitle {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+}
+
+.cards-wrapper {
+  position: relative;
+}
+
+/* Feature Cards */
+.feature-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-speed) ease;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.feature-card:hover::after {
+  opacity: 1;
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 1.5rem auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(117, 113, 249, 0.1);
+  border-radius: 50%;
+  position: relative;
+  transition: all var(--transition-speed) ease;
+}
+
+.feature-card:hover .card-icon {
+  transform: scale(1.05);
+  background-color: rgba(117, 113, 249, 0.15);
+}
+
+.card-icon i {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  transition: all var(--transition-speed) ease;
+}
+
+.feature-card:hover .card-icon i {
+  transform: scale(1.1);
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--dark-color);
+}
+
+.card-text {
+  font-size: 1rem;
+  color: var(--gray-600);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.card-btn {
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(98, 89, 202, 0.2);
+}
+
+.card-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  transition: all 0.6s ease;
+}
+
+.card-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(98, 89, 202, 0.3);
+}
+
+.card-btn:hover::before {
+  left: 100%;
+}
+
+/* Welcome Section for Non-Logged Users */
+.welcome-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.welcome-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-speed) ease;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  text-align: center;
+}
+
+.welcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+}
+
+.welcome-card h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+
+}
+
+.welcome-card p {
+  font-size: 1.2rem;
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+}
+
+.welcome-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.welcome-buttons .btn {
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.welcome-buttons .btn-primary {
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  border: none;
+  box-shadow: 0 4px 12px rgba(98, 89, 202, 0.2);
+}
+
+.welcome-buttons .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(98, 89, 202, 0.3);
+}
+
+.welcome-buttons .btn-outline-primary {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+}
+
+.welcome-buttons .btn-outline-primary:hover {
+  background-color: rgba(117, 113, 249, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .dashboard-container {
+    padding: 2rem;
+  }
+  
+  .card-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .card-icon i {
+    font-size: 2rem;
+  }
+  
+  .welcome-card {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-header h1 {
+    font-size: 2rem;
+  }
+  
+  .home-header p {
+    font-size: 1.1rem;
+  }
+  
+  .dashboard-title {
+    font-size: 1.6rem;
+  }
+  
+  .dashboard-subtitle {
+    font-size: 1rem;
+  }
+  
+  .welcome-card h2 {
+    font-size: 1.8rem;
+  }
+  
+  .welcome-card p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-container {
+    padding: 1.5rem;
+  }
+  
+  .welcome-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .welcome-buttons {
+    flex-direction: column;
+  }
+  
+  .welcome-buttons .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}

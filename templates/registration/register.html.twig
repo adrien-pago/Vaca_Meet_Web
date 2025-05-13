@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Vaca-Meet{% endblock %}
+
+{% block body_class %}navbar-hidden auth-page{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block body %}
+<div class="auth-page-container">
+    <div class="register-logo text-center mt-5 mb-4">
+        <a href="{{ path('app_home') }}">
+            <h1 class="display-3 text-primary">Vaca-Meet</h1>
+        </a>
+    </div>
+    
+    <div class="register-card">
+        <div class="register-header">
+            <h1 class="register-title">Créer un compte</h1>
+            <p class="register-subtitle">Rejoignez Vaca-Meet pour gérer votre camping</p>
+        </div>
+        
+        <div class="register-body">
+            <div class="progress-container">
+                <div class="progress-steps">
+                    <div class="progress-step active">
+                        <span>1</span>
+                        <span class="progress-step-text">Informations</span>
+                    </div>
+                    <div class="progress-step">
+                        <span>2</span>
+                        <span class="progress-step-text">Sécurité</span>
+                    </div>
+                    <div class="progress-step">
+                        <span>3</span>
+                        <span class="progress-step-text">Confirmation</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 33%;"></div>
+                </div>
+            </div>
+            
+            {{ form_start(registrationForm, {'attr': {'class': 'register-form'}}) }}
+                <div class="registration-step active" id="step-1">
+                    <h3 class="registration-step-title">Vos informations</h3>
+                    
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.username, {
+                            'attr': {'class': 'form-control', 'placeholder': ' '}
+                        }) }}
+                        <label for="{{ registrationForm.username.vars.id }}" class="form-label">{{ form_label(registrationForm.username) }}</label>
+                        {{ form_errors(registrationForm.username) }}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.email, {
+                            'attr': {'class': 'form-control', 'placeholder': ' '}
+                        }) }}
+                        <label for="{{ registrationForm.email.vars.id }}" class="form-label">{{ form_label(registrationForm.email) }}</label>
+                        {{ form_errors(registrationForm.email) }}
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <div></div>
+                        <button type="button" class="btn btn-next">Continuer</button>
+                    </div>
+                </div>
+                
+                <div class="registration-step" id="step-2">
+                    <h3 class="registration-step-title">Sécurisation du compte</h3>
+                    
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.plainPassword, {
+                            'attr': {'class': 'form-control', 'placeholder': ' '}
+                        }) }}
+                        <label for="{{ registrationForm.plainPassword.vars.id }}" class="form-label">Mot de passe</label>
+                        <button type="button" id="toggle-password" class="btn btn-sm text-muted position-absolute end-0 top-50 translate-middle-y me-3" style="background:none; border:none;">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        {{ form_errors(registrationForm.plainPassword) }}
+                    </div>
+                    
+                    <div class="password-strength">
+                        <div class="strength-meter">
+                            <div class="strength-meter-fill"></div>
+                        </div>
+                        <div class="strength-text">
+                            <span>Faible</span>
+                            <span>Moyen</span>
+                            <span>Fort</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <button type="button" class="btn btn-prev">Retour</button>
+                        <button type="button" class="btn btn-next">Continuer</button>
+                    </div>
+                </div>
+                
+                <div class="registration-step" id="step-3">
+                    <h3 class="registration-step-title">Finaliser l'inscription</h3>
+                    
+                    <div class="terms-check">
+                        {{ form_widget(registrationForm.agreeTerms, {
+                            'attr': {'class': 'form-check-input'}
+                        }) }}
+                        <label for="{{ registrationForm.agreeTerms.vars.id }}" class="form-check-label">
+                            J'accepte les <a href="#" target="_blank">conditions d'utilisation</a> et la <a href="#" target="_blank">politique de confidentialité</a>.
+                        </label>
+                        {{ form_errors(registrationForm.agreeTerms) }}
+                    </div>
+                    
+                    <div class="step-buttons">
+                        <button type="button" class="btn btn-prev">Retour</button>
+                        <button type="submit" class="register-btn">Créer mon compte</button>
+                    </div>
+                </div>
+            {{ form_end(registrationForm) }}
+        </div>
+        
+        <div class="register-footer">
+            <p>Déjà inscrit ? <a href="{{ path('app_login') }}">Se connecter</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer mt-auto py-1">
+    <div class="container text-center">
+        <p class="mb-0 text-muted small">&copy; {{ "now"|date("Y") }} Vaca-Meet - Application pour gérants de campings</p>
+    </div>
+</footer>
+{% endblock %} 
