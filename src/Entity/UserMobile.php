@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Mobile;
+namespace App\Entity;
 
 use App\Repository\UserMobileRepository;
 use Doctrine\ORM\Mapping as ORM;
