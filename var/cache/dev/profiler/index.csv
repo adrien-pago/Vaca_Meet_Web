@@ -141,3 +141,9 @@ ef28eb,127.0.0.1,GET,http://127.0.0.1:8000/,1747214414,,200,request
 b856ef,127.0.0.1,GET,http://127.0.0.1:8000/planning/,1747214418,,200,request
 f203e4,127.0.0.1,GET,http://127.0.0.1:8000/account/vacancier-password/,1747214420,,200,request
 93b3fa,127.0.0.1,GET,http://127.0.0.1:8000/account/vacancier-password/,1747214433,,200,request
+e5d0d0,127.0.0.1,GET,http://127.0.0.1:8000/,1747223746,,200,request
+c2abcd,127.0.0.1,GET,http://127.0.0.1:8000/logout,1747223749,,302,request
+3b819c,127.0.0.1,GET,http://127.0.0.1:8000/,1747223749,,302,request
+03baeb,127.0.0.1,GET,http://127.0.0.1:8000/login,1747223750,,200,request
+8f8af7,127.0.0.1,POST,http://127.0.0.1:8000/login,1747223756,,302,request
+8dc94b,127.0.0.1,GET,http://127.0.0.1:8000/,1747223756,,200,request
