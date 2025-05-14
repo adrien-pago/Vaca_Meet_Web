@@ -35,6 +35,8 @@ return [
     'app_service_show' => [['id'], ['_controller' => 'App\\Controller\\Service\\ServiceController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/service']], [], [], []],
     'app_service_edit' => [['id'], ['_controller' => 'App\\Controller\\Service\\ServiceController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/service']], [], [], []],
     'app_service_delete' => [['id'], ['_controller' => 'App\\Controller\\Service\\ServiceController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/service']], [], [], []],
+    'app_vacancier_password_index' => [[], ['_controller' => 'App\\Controller\\VacancierPasswordController::index'], [], [['text', '/account/vacancier-password/']], [], [], []],
+    'app_vacancier_password_update' => [[], ['_controller' => 'App\\Controller\\VacancierPasswordController::update'], [], [['text', '/account/vacancier-password/update']], [], [], []],
     'App\Controller\Account\AccountController::index' => [[], ['_controller' => 'App\\Controller\\Account\\AccountController::index'], [], [['text', '/account/']], [], [], []],
     'App\Controller\Account\AccountController::edit' => [[], ['_controller' => 'App\\Controller\\Account\\AccountController::edit'], [], [['text', '/account/edit']], [], [], []],
     'App\Controller\Account\AccountController::delete' => [[], ['_controller' => 'App\\Controller\\Account\\AccountController::delete'], [], [['text', '/account/delete']], [], [], []],
@@ -54,4 +56,6 @@ return [
     'App\Controller\Service\ServiceController::show' => [['id'], ['_controller' => 'App\\Controller\\Service\\ServiceController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/service']], [], [], []],
     'App\Controller\Service\ServiceController::edit' => [['id'], ['_controller' => 'App\\Controller\\Service\\ServiceController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/service']], [], [], []],
     'App\Controller\Service\ServiceController::delete' => [['id'], ['_controller' => 'App\\Controller\\Service\\ServiceController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/service']], [], [], []],
+    'App\Controller\VacancierPasswordController::index' => [[], ['_controller' => 'App\\Controller\\VacancierPasswordController::index'], [], [['text', '/account/vacancier-password/']], [], [], []],
+    'App\Controller\VacancierPasswordController::update' => [[], ['_controller' => 'App\\Controller\\VacancierPasswordController::update'], [], [['text', '/account/vacancier-password/update']], [], [], []],
 ];

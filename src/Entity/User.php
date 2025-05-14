@@ -52,6 +52,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 20, options: ["default" => "default"])]
     private ?string $theme = self::THEME_DEFAULT;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $mdp_vacancier = null;
+
     public function __construct()
     {
         $this->serviceAccounts = new ArrayCollection();
@@ -220,6 +223,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTheme(string $theme): static
     {
         $this->theme = $theme;
+
+        return $this;
+    }
+    
+    public function getMdpVacancier(): ?string
+    {
+        return $this->mdp_vacancier;
+    }
+
+    public function setMdpVacancier(?string $mdp_vacancier): static
+    {
+        $this->mdp_vacancier = $mdp_vacancier;
 
         return $this;
     }

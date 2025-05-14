@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion du mot de passe vacancier - {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div class="vacancier-password-container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card vacancier-password-card animate-in">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <i class="bi bi-shield-lock me-2"></i>
+                        Gestion du mot de passe vacancier
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="info-section animate-fade-in">
+                                <h4 class="mb-3">Informations</h4>
+                                <p class="mb-4">Ce mot de passe sera utilisé par les vacanciers pour se connecter à l'application mobile et accéder aux services de votre camping.</p>
+                                
+                                <div class="password-status mb-4">
+                                    <h5>Statut actuel</h5>
+                                    {% if user.mdpVacancier %}
+                                        <div class="password-set">
+                                            <div class="status-badge active">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                <span>Mot de passe défini</span>
+                                            </div>
+                                            <div class="current-password">
+                                                <label>Mot de passe actuel :</label>
+                                                <div class="password-display">
+                                                    <span id="password-value">{{ user.mdpVacancier }}</span>
+                                                    <button id="copy-password" class="btn btn-sm btn-outline-primary" data-tooltip="Copier">
+                                                        <i class="bi bi-clipboard"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="status-badge inactive">
+                                            <i class="bi bi-exclamation-circle-fill"></i>
+                                            <span>Aucun mot de passe défini</span>
+                                        </div>
+                                        <p class="text-muted">Définissez un mot de passe pour permettre l'accès à l'application mobile.</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-section animate-slide-in">
+                                <h4 class="mb-3">{{ user.mdpVacancier ? 'Modifier' : 'Définir' }} le mot de passe</h4>
+                                
+                                <form action="{{ path('app_vacancier_password_update') }}" method="post" id="password-form">
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Nouveau mot de passe</label>
+                                        <div class="input-group password-input-group">
+                                            <input type="text" id="password" name="password" class="form-control" 
+                                                   placeholder="Entrez un mot de passe" required minlength="6">
+                                            <button type="button" class="btn btn-outline-secondary" id="generate-password">
+                                                <i class="bi bi-magic"></i> Générer
+                                            </button>
+                                        </div>
+                                        <div class="form-text">Le mot de passe doit comporter au moins 6 caractères.</div>
+                                    </div>
+                                    
+                                    <div class="password-meter mb-4">
+                                        <div class="strength-meter">
+                                            <div class="meter-bar"></div>
+                                        </div>
+                                        <div class="strength-text">Force du mot de passe</div>
+                                    </div>
+                                    
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary submit-btn">
+                                            <span class="btn-text">{{ user.mdpVacancier ? 'Mettre à jour' : 'Définir' }} le mot de passe</span>
+                                            <div class="btn-icon">
+                                                <i class="bi bi-arrow-right"></i>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-4 qr-code-card animate-in">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h4>Application mobile pour vos vacanciers</h4>
+                            <p>Les vacanciers peuvent scanner ce QR code pour télécharger l'application mobile et accéder à votre planning d'activités.</p>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-outline-primary me-2">
+                                    <i class="bi bi-apple me-2"></i> App Store
+                                </a>
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="bi bi-google-play me-2"></i> Google Play
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="qr-code">
+                                <div class="qr-placeholder">
+                                    <i class="bi bi-qr-code"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

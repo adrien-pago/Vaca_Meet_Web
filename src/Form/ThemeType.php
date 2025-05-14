@@ -16,7 +16,7 @@ class ThemeType extends AbstractType
             ->add('theme', ChoiceType::class, [
                 'label' => false,
                 'choices' => [
-                    'Bleu (par défaut)' => User::THEME_DEFAULT,
+                    'Violet (par défaut)' => User::THEME_DEFAULT,
                     'Bleu clair' => User::THEME_LIGHT_BLUE,
                     'Vert clair' => User::THEME_LIGHT_GREEN,
                     'Rose clair' => User::THEME_LIGHT_PINK,

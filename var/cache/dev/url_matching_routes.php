@@ -27,6 +27,8 @@ return [
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/service' => [[['_route' => 'app_service_index', '_controller' => 'App\\Controller\\Service\\ServiceController::index'], null, ['GET' => 0], null, true, false, null]],
         '/service/new' => [[['_route' => 'app_service_new', '_controller' => 'App\\Controller\\Service\\ServiceController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/account/vacancier-password' => [[['_route' => 'app_vacancier_password_index', '_controller' => 'App\\Controller\\VacancierPasswordController::index'], null, null, null, true, false, null]],
+        '/account/vacancier-password/update' => [[['_route' => 'app_vacancier_password_update', '_controller' => 'App\\Controller\\VacancierPasswordController::update'], null, ['POST' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

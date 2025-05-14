@@ -70,19 +70,19 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         ";
         // line 14
         yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
-        // line 18
+        // line 55
         yield "
         <style>
             ";
-        // line 20
-        if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 20, $this->source); })()), "user", [], "any", false, false, false, 20)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
-            // line 21
+        // line 57
+        if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 57, $this->source); })()), "user", [], "any", false, false, false, 57)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+            // line 58
             yield "                ";
-            $context["userTheme"] = CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 21, $this->source); })()), "user", [], "any", false, false, false, 21), "theme", [], "any", false, false, false, 21);
-            // line 22
+            $context["userTheme"] = CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 58, $this->source); })()), "user", [], "any", false, false, false, 58), "theme", [], "any", false, false, false, 58);
+            // line 59
             yield "                ";
-            if (((isset($context["userTheme"]) || array_key_exists("userTheme", $context) ? $context["userTheme"] : (function () { throw new RuntimeError('Variable "userTheme" does not exist.', 22, $this->source); })()) == "light-blue")) {
-                // line 23
+            if (((isset($context["userTheme"]) || array_key_exists("userTheme", $context) ? $context["userTheme"] : (function () { throw new RuntimeError('Variable "userTheme" does not exist.', 59, $this->source); })()) == "light-blue")) {
+                // line 60
                 yield "                    :root {
                         --navbar-bg: linear-gradient(135deg, #6ecbf5, #8ed8f8);
                         --navbar-bg-scrolled: rgba(142, 216, 248, 0.95);
@@ -91,9 +91,9 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                         --theme-color-rgb: 110, 203, 245;
                     }
                 ";
-            } elseif ((            // line 30
-(isset($context["userTheme"]) || array_key_exists("userTheme", $context) ? $context["userTheme"] : (function () { throw new RuntimeError('Variable "userTheme" does not exist.', 30, $this->source); })()) == "light-green")) {
-                // line 31
+            } elseif ((            // line 67
+(isset($context["userTheme"]) || array_key_exists("userTheme", $context) ? $context["userTheme"] : (function () { throw new RuntimeError('Variable "userTheme" does not exist.', 67, $this->source); })()) == "light-green")) {
+                // line 68
                 yield "                    :root {
                         --navbar-bg: linear-gradient(135deg, #7dd87e, #a0e4a1);
                         --navbar-bg-scrolled: rgba(160, 228, 161, 0.95);
@@ -102,9 +102,9 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                         --theme-color-rgb: 125, 216, 126;
                     }
                 ";
-            } elseif ((            // line 38
-(isset($context["userTheme"]) || array_key_exists("userTheme", $context) ? $context["userTheme"] : (function () { throw new RuntimeError('Variable "userTheme" does not exist.', 38, $this->source); })()) == "light-pink")) {
-                // line 39
+            } elseif ((            // line 75
+(isset($context["userTheme"]) || array_key_exists("userTheme", $context) ? $context["userTheme"] : (function () { throw new RuntimeError('Variable "userTheme" does not exist.', 75, $this->source); })()) == "light-pink")) {
+                // line 76
                 yield "                    :root {
                         --navbar-bg: linear-gradient(135deg, #f792bb, #fcb6d0);
                         --navbar-bg-scrolled: rgba(252, 182, 208, 0.95);
@@ -114,7 +114,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                     }
                 ";
             } else {
-                // line 47
+                // line 84
                 yield "                    :root {
                         --navbar-bg: linear-gradient(135deg, #a5a0ff, #b6b3ff);
                         --navbar-bg-scrolled: rgba(181, 178, 255, 0.95);
@@ -124,10 +124,10 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                     }
                 ";
             }
-            // line 55
+            // line 92
             yield "            ";
         } else {
-            // line 56
+            // line 93
             yield "                :root {
                     --navbar-bg: linear-gradient(135deg, #a5a0ff, #b6b3ff);
                     --navbar-bg-scrolled: rgba(181, 178, 255, 0.95);
@@ -137,7 +137,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                 }
             ";
         }
-        // line 64
+        // line 101
         yield "
             /* Application des variables de thème aux éléments de l'interface */
             .btn-primary {
@@ -184,32 +184,32 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         </style>
     </head>
     <body class=\"d-flex flex-column h-100 ";
-        // line 109
+        // line 146
         yield from $this->unwrap()->yieldBlock('body_class', $context, $blocks);
         yield "\">
         ";
-        // line 110
+        // line 147
         yield from $this->unwrap()->yieldBlock('header', $context, $blocks);
-        // line 186
+        // line 231
         yield "
         <main class=\"flex-shrink-0\">
             <div class=\"container mb-4\">
                 ";
-        // line 189
+        // line 234
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 189, $this->source); })()), "flashes", [], "any", false, false, false, 189));
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 234, $this->source); })()), "flashes", [], "any", false, false, false, 234));
         foreach ($context['_seq'] as $context["label"] => $context["messages"]) {
-            // line 190
+            // line 235
             yield "                    ";
             $context['_parent'] = $context;
             $context['_seq'] = CoreExtension::ensureTraversable($context["messages"]);
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                // line 191
+                // line 236
                 yield "                        <div class=\"alert alert-";
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["label"], "html", null, true);
                 yield " alert-dismissible fade show\">
                             ";
-                // line 192
+                // line 237
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["message"], "html", null, true);
                 yield "
                             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
@@ -219,26 +219,27 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 196
+            // line 241
             yield "                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['label'], $context['messages'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 197
+        // line 242
         yield "                
                 ";
-        // line 198
+        // line 243
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 199
+        // line 244
         yield "            </div>
         </main>
 
         ";
-        // line 202
+        // line 247
         yield from $this->unwrap()->yieldBlock('footer', $context, $blocks);
-        // line 209
-        yield "    </body>
+        // line 254
+        yield "        
+    </body>
 </html> ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -319,6 +320,43 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         yield $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         yield "
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\" defer></script>
+        <script>
+            // Ensure navbar initialization
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('Ensuring navbar is initialized from base.html.twig');
+                if (typeof window.initNavbar === 'function') {
+                    window.initNavbar();
+                } else {
+                    console.error('initNavbar function not found');
+                    // Fallback for navbar toggle
+                    const navbarToggle = document.querySelector('.navbar-toggle');
+                    const navbarMenu = document.querySelector('.navbar-menu');
+                    const navbarMenuOverlay = document.querySelector('.navbar-menu-overlay');
+                    
+                    if (navbarToggle && navbarMenu && navbarMenuOverlay) {
+                        navbarToggle.addEventListener('click', function() {
+                            console.log('Fallback navbar toggle clicked');
+                            navbarToggle.classList.toggle('active');
+                            navbarMenu.classList.toggle('active');
+                            navbarMenuOverlay.classList.toggle('active');
+                            
+                            if (navbarMenu.classList.contains('active')) {
+                                document.body.style.overflow = 'hidden';
+                            } else {
+                                document.body.style.overflow = '';
+                            }
+                        });
+                        
+                        navbarMenuOverlay.addEventListener('click', function() {
+                            navbarToggle.classList.remove('active');
+                            navbarMenu.classList.remove('active');
+                            navbarMenuOverlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                        });
+                    }
+                }
+            });
+        </script>
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -329,7 +367,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         yield from [];
     }
 
-    // line 109
+    // line 146
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -351,7 +389,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         yield from [];
     }
 
-    // line 110
+    // line 147
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -364,25 +402,25 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
 
-        // line 111
+        // line 148
         yield "        <header>
             <div class=\"navbar-container\">
                 <div class=\"navbar\">
                     <div class=\"navbar-brand\">
                         ";
-        // line 115
-        if ((CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 115, $this->source); })()), "user", [], "any", false, false, false, 115) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, ($context["app"] ?? null), "user", [], "any", false, true, false, 115), "username", [], "any", true, true, false, 115))) {
-            // line 116
+        // line 152
+        if ((CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 152, $this->source); })()), "user", [], "any", false, false, false, 152) && CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, ($context["app"] ?? null), "user", [], "any", false, true, false, 152), "username", [], "any", true, true, false, 152))) {
+            // line 153
             yield "                            <span class=\"camping-name\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 116, $this->source); })()), "user", [], "any", false, false, false, 116), "username", [], "any", false, false, false, 116), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 153, $this->source); })()), "user", [], "any", false, false, false, 153), "username", [], "any", false, false, false, 153), "html", null, true);
             yield "</span>
                         ";
         }
-        // line 118
+        // line 155
         yield "                    </div>
                     
                     <a href=\"";
-        // line 120
+        // line 157
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
         yield "\" class=\"navbar-title-link\">
                         <span class=\"navbar-title\">Vaca-Meet</span>
@@ -398,12 +436,12 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                     <div class=\"navbar-menu\">
                         <ul class=\"navbar-nav\">
                             ";
-        // line 133
-        if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 133, $this->source); })()), "user", [], "any", false, false, false, 133)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
-            // line 134
+        // line 170
+        if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 170, $this->source); })()), "user", [], "any", false, false, false, 170)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+            // line 171
             yield "                                <li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"";
-            // line 135
+            // line 172
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
             yield "\">
                                         <span class=\"icon\"><i class=\"bi bi-house-door\"></i></span>
@@ -411,12 +449,12 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                                     </a>
                                 </li>
                                 ";
-            // line 140
+            // line 177
             if ((($tmp = $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_MANAGER")) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
-                // line 141
+                // line 178
                 yield "                                <li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"";
-                // line 142
+                // line 179
                 yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_account_index");
                 yield "\">
                                         <span class=\"icon\"><i class=\"bi bi-person-circle\"></i></span>
@@ -425,10 +463,10 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                                 </li>
                                 ";
             }
-            // line 148
+            // line 185
             yield "                                <li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"";
-            // line 149
+            // line 186
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_service_index");
             yield "\">
                                         <span class=\"icon\"><i class=\"bi bi-people\"></i></span>
@@ -437,16 +475,32 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                                 </li>
                                 <li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"";
-            // line 155
+            // line 192
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index");
             yield "\">
                                         <span class=\"icon\"><i class=\"bi bi-calendar-week\"></i></span>
                                         Planning
                                     </a>
                                 </li>
-                                <li class=\"nav-item\">
+                                ";
+            // line 197
+            if ((($tmp = $this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_MANAGER")) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+                // line 198
+                yield "                                <li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"";
-            // line 161
+                // line 199
+                yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vacancier_password_index");
+                yield "\">
+                                        <span class=\"icon\"><i class=\"bi bi-shield-lock\"></i></span>
+                                        Mot de passe vacancier
+                                    </a>
+                                </li>
+                                ";
+            }
+            // line 205
+            yield "                                <li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"";
+            // line 206
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             yield "\">
                                         <span class=\"icon\"><i class=\"bi bi-box-arrow-right\"></i></span>
@@ -455,10 +509,10 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                                 </li>
                             ";
         } else {
-            // line 167
+            // line 212
             yield "                                <li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"";
-            // line 168
+            // line 213
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             yield "\">
                                         <span class=\"icon\"><i class=\"bi bi-box-arrow-in-right\"></i></span>
@@ -467,7 +521,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                                 </li>
                                 <li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"";
-            // line 174
+            // line 219
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             yield "\">
                                         <span class=\"icon\"><i class=\"bi bi-person-plus\"></i></span>
@@ -476,7 +530,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                                 </li>
                             ";
         }
-        // line 180
+        // line 225
         yield "                        </ul>
                     </div>
                 </div>
@@ -492,7 +546,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         yield from [];
     }
 
-    // line 198
+    // line 243
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -514,7 +568,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         yield from [];
     }
 
-    // line 202
+    // line 247
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -527,11 +581,11 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 203
+        // line 248
         yield "        <footer class=\"footer mt-auto py-2 bg-light\">
             <div class=\"container text-center\">
                 <p class=\"mb-0\">&copy; ";
-        // line 205
+        // line 250
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate("now", "Y"), "html", null, true);
         yield " Vaca-Meet - Application pour gérants de campings</p>
             </div>
@@ -567,7 +621,7 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  535 => 205,  531 => 203,  518 => 202,  496 => 198,  480 => 180,  471 => 174,  462 => 168,  459 => 167,  450 => 161,  441 => 155,  432 => 149,  429 => 148,  420 => 142,  417 => 141,  415 => 140,  407 => 135,  404 => 134,  402 => 133,  386 => 120,  382 => 118,  376 => 116,  374 => 115,  368 => 111,  355 => 110,  333 => 109,  318 => 15,  305 => 14,  289 => 9,  276 => 8,  253 => 6,  241 => 209,  239 => 202,  234 => 199,  232 => 198,  229 => 197,  223 => 196,  213 => 192,  208 => 191,  203 => 190,  199 => 189,  194 => 186,  192 => 110,  188 => 109,  141 => 64,  131 => 56,  128 => 55,  118 => 47,  108 => 39,  106 => 38,  97 => 31,  95 => 30,  86 => 23,  83 => 22,  80 => 21,  78 => 20,  74 => 18,  72 => 14,  69 => 13,  67 => 8,  62 => 6,  55 => 1,);
+        return array (  589 => 250,  585 => 248,  572 => 247,  550 => 243,  534 => 225,  525 => 219,  516 => 213,  513 => 212,  504 => 206,  501 => 205,  492 => 199,  489 => 198,  487 => 197,  479 => 192,  470 => 186,  467 => 185,  458 => 179,  455 => 178,  453 => 177,  445 => 172,  442 => 171,  440 => 170,  424 => 157,  420 => 155,  414 => 153,  412 => 152,  406 => 148,  393 => 147,  371 => 146,  319 => 15,  306 => 14,  290 => 9,  277 => 8,  254 => 6,  241 => 254,  239 => 247,  234 => 244,  232 => 243,  229 => 242,  223 => 241,  213 => 237,  208 => 236,  203 => 235,  199 => 234,  194 => 231,  192 => 147,  188 => 146,  141 => 101,  131 => 93,  128 => 92,  118 => 84,  108 => 76,  106 => 75,  97 => 68,  95 => 67,  86 => 60,  83 => 59,  80 => 58,  78 => 57,  74 => 55,  72 => 14,  69 => 13,  67 => 8,  62 => 6,  55 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -588,6 +642,43 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\" defer></script>
+        <script>
+            // Ensure navbar initialization
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('Ensuring navbar is initialized from base.html.twig');
+                if (typeof window.initNavbar === 'function') {
+                    window.initNavbar();
+                } else {
+                    console.error('initNavbar function not found');
+                    // Fallback for navbar toggle
+                    const navbarToggle = document.querySelector('.navbar-toggle');
+                    const navbarMenu = document.querySelector('.navbar-menu');
+                    const navbarMenuOverlay = document.querySelector('.navbar-menu-overlay');
+                    
+                    if (navbarToggle && navbarMenu && navbarMenuOverlay) {
+                        navbarToggle.addEventListener('click', function() {
+                            console.log('Fallback navbar toggle clicked');
+                            navbarToggle.classList.toggle('active');
+                            navbarMenu.classList.toggle('active');
+                            navbarMenuOverlay.classList.toggle('active');
+                            
+                            if (navbarMenu.classList.contains('active')) {
+                                document.body.style.overflow = 'hidden';
+                            } else {
+                                document.body.style.overflow = '';
+                            }
+                        });
+                        
+                        navbarMenuOverlay.addEventListener('click', function() {
+                            navbarToggle.classList.remove('active');
+                            navbarMenu.classList.remove('active');
+                            navbarMenuOverlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                        });
+                    }
+                }
+            });
+        </script>
         {% endblock %}
 
         <style>
@@ -731,6 +822,14 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
                                         Planning
                                     </a>
                                 </li>
+                                {% if is_granted('ROLE_MANAGER') %}
+                                <li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"{{ path('app_vacancier_password_index') }}\">
+                                        <span class=\"icon\"><i class=\"bi bi-shield-lock\"></i></span>
+                                        Mot de passe vacancier
+                                    </a>
+                                </li>
+                                {% endif %}
                                 <li class=\"nav-item\">
                                     <a class=\"nav-link\" href=\"{{ path('app_logout') }}\">
                                         <span class=\"icon\"><i class=\"bi bi-box-arrow-right\"></i></span>
@@ -780,7 +879,8 @@ class __TwigTemplate_d83c1e2ed248d21855f557c2486dce29 extends Template
             </div>
         </footer>
         {% endblock %}
+        
     </body>
-</html> ", "base.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-Application-Web-SYMFONY\\templates\\base.html.twig");
+</html> ", "base.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-WEB\\templates\\base.html.twig");
     }
 }

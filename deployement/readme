@@ -1,0 +1,85 @@
+## Déploiement sur VPS avec Plesk
+
+### Configuration initiale
+
+1. Dans Plesk, créer un nouveau domaine ou sous-domaine pour l'application
+2. Configurer un certificat SSL si nécessaire
+3. Créer une base de données MySQL/MariaDB depuis Plesk
+
+### Déploiement avec Git
+
+1. Dans Plesk, activer Git pour le domaine
+2. Ajouter le dépôt distant et configurer les options de déploiement :
+   - URL du dépôt : `https://github.com/votre-utilisateur/Vaca-Meet-WEB.git`
+   - Branche : `main` (ou votre branche de production)
+   - Activer le déploiement automatique si souhaité
+
+3. Après le premier déploiement, se connecter au serveur en SSH :
+```bash
+ssh user@votre-serveur
+```
+
+4. Naviguer vers le répertoire du projet et installer les dépendances :
+```bash
+cd /var/www/vhosts/votre-domaine.com
+composer install --no-dev --optimize-autoloader
+npm install
+npm run build
+```
+
+5. Configurer le fichier `.env.local` avec les informations de la base de données :
+```
+DATABASE_URL="mysql://user_plesk:password@localhost:3306/db_name?serverVersion=mariadb-10.5"
+APP_ENV=prod
+```
+
+6. Appliquer les migrations :
+```bash
+php bin/console doctrine:migrations:migrate --no-interaction
+```
+
+7. Vider le cache :
+```bash
+php bin/console cache:clear
+```
+
+8. Configurer les permissions des fichiers :
+```bash
+chown -R webuser:psaserv var
+chmod -R 775 var
+```
+
+### Mise à jour de l'application
+
+Pour mettre à jour l'application après des modifications du code :
+
+1. Effectuer un pull depuis Plesk ou déclencher un déploiement automatique
+2. Se connecter au serveur en SSH et exécuter :
+```bash
+cd /var/www/vhosts/votre-domaine.com
+composer install --no-dev --optimize-autoloader
+npm install
+npm run build
+php bin/console doctrine:migrations:migrate --no-interaction
+php bin/console cache:clear
+```
+
+## Sécurité et maintenance
+
+- Assurez-vous que les dossiers `var/cache` et `var/log` sont accessibles en écriture par le serveur web
+- Configurez correctement les règles de pare-feu sur le VPS
+- Mettez régulièrement à jour les dépendances PHP et JavaScript
+- Sauvegardez régulièrement la base de données depuis Plesk
+
+## Développement futur
+
+- Intégration de notifications push pour l'application mobile
+- Système de réservation pour les activités
+- Statistiques de fréquentation des services
+- Interface multilingue
+
+---
+
+
+
+© Vaca-Meet 2025

@@ -17,7 +17,7 @@
             </div>
             
             <div class="cards-wrapper">
-                <div class="cards row row-cols-1 row-cols-md-3 g-4">
+                <div class="cards row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
                     {% if is_granted('ROLE_MANAGER') %}
                     <div class="col">
                         <div class="feature-card h-100">
@@ -58,6 +58,22 @@
                             </div>
                         </div>
                     </div>
+                    
+                    {% if is_granted('ROLE_MANAGER') %}
+                    <div class="col">
+                        <div class="feature-card h-100 highlight-card">
+                            <div class="card-ribbon">Nouveau</div>
+                            <div class="card-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Mot de passe vacancier</h5>
+                                <p class="card-text">Gérez l'accès à l'application mobile pour vos vacanciers</p>
+                                <a href="{{ path('app_vacancier_password_index') }}" class="btn btn-primary card-btn">Accéder</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -81,6 +97,40 @@
     .themed-title {
         color: var(--theme-color) !important;
         font-weight: bold;
+    }
+    
+    .highlight-card {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--theme-color);
+        box-shadow: 0 0 15px rgba(var(--theme-color-rgb), 0.3);
+        animation: pulse 2s infinite;
+    }
+    
+    .card-ribbon {
+        position: absolute;
+        top: 10px;
+        right: -30px;
+        background: var(--primary-gradient);
+        color: white;
+        padding: 5px 30px;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+    }
+    
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(var(--theme-color-rgb), 0.4);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(var(--theme-color-rgb), 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(var(--theme-color-rgb), 0);
+        }
     }
 </style>
 {% endblock %} 

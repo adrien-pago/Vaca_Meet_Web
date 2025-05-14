@@ -13,6 +13,7 @@ import './styles/Home.css';
 import './styles/Planning.css';
 import './styles/Login.css';
 import './styles/Register.css';
+import './styles/Vacancier_password.scss';
 
 // Imports scripts call.js qui appel tout les autres scripts
 import './scripts/call.js';
