@@ -145,8 +145,8 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 10
-        yield "<div class=\"auth-page-container\">
-    <div class=\"login-logo text-center mt-5 mb-4\">
+        yield "<div class=\"auth-page-container pt-0 mt-0\">
+    <div class=\"login-logo text-center mt-0 mb-0\">
         <a href=\"";
         // line 12
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
@@ -155,7 +155,7 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
         </a>
     </div>
     
-    <div class=\"login-card\">
+    <div class=\"login-card mt-0\">
         <div class=\"login-header\">
             <h1 class=\"login-title\">Connexion</h1>
             <p class=\"login-subtitle\">Accédez à votre espace de gestion</p>
@@ -247,12 +247,9 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
         // line 71
-        yield "<footer class=\"footer mt-auto py-1\">
+        yield "<footer class=\"footer mt-auto py-1 fixed-bottom bg-light shadow-sm\">
     <div class=\"container text-center\">
-        <p class=\"mb-0 text-muted small\">&copy; ";
-        // line 73
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate("now", "Y"), "html", null, true);
-        yield " Vaca-Meet - Application pour gérants de campings</p>
+        <p class=\"mb-0 fw-bold\">© Vaca Meet</p>
     </div>
 </footer>
 ";
@@ -286,7 +283,7 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  254 => 73,  250 => 71,  237 => 70,  221 => 64,  198 => 44,  183 => 32,  179 => 30,  173 => 27,  170 => 26,  168 => 25,  152 => 12,  148 => 10,  135 => 9,  113 => 7,  90 => 5,  67 => 3,  44 => 1,);
+        return array (  250 => 71,  237 => 70,  221 => 64,  198 => 44,  183 => 32,  179 => 30,  173 => 27,  170 => 26,  168 => 25,  152 => 12,  148 => 10,  135 => 9,  113 => 7,  90 => 5,  67 => 3,  44 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -300,14 +297,14 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
 {% block header %}{% endblock %}
 
 {% block body %}
-<div class=\"auth-page-container\">
-    <div class=\"login-logo text-center mt-5 mb-4\">
+<div class=\"auth-page-container pt-0 mt-0\">
+    <div class=\"login-logo text-center mt-0 mb-0\">
         <a href=\"{{ path('app_home') }}\">
             <h1 class=\"display-3 text-primary\">Vaca-Meet</h1>
         </a>
     </div>
     
-    <div class=\"login-card\">
+    <div class=\"login-card mt-0\">
         <div class=\"login-header\">
             <h1 class=\"login-title\">Connexion</h1>
             <p class=\"login-subtitle\">Accédez à votre espace de gestion</p>
@@ -361,11 +358,11 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
 {% endblock %}
 
 {% block footer %}
-<footer class=\"footer mt-auto py-1\">
+<footer class=\"footer mt-auto py-1 fixed-bottom bg-light shadow-sm\">
     <div class=\"container text-center\">
-        <p class=\"mb-0 text-muted small\">&copy; {{ \"now\"|date(\"Y\") }} Vaca-Meet - Application pour gérants de campings</p>
+        <p class=\"mb-0 fw-bold\">© Vaca Meet</p>
     </div>
 </footer>
-{% endblock %} ", "security/login.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-Application-Web-SYMFONY\\templates\\security\\login.html.twig");
+{% endblock %} ", "security/login.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-WEB\\templates\\security\\login.html.twig");
     }
 }

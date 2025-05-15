@@ -7,14 +7,14 @@
 {% block header %}{% endblock %}
 
 {% block body %}
-<div class="auth-page-container">
-    <div class="register-logo text-center mt-5 mb-4">
+<div class="auth-page-container pt-0 mt-0">
+    <div class="register-logo text-center mt-0 mb-0">
         <a href="{{ path('app_home') }}">
             <h1 class="display-3 text-primary">Vaca-Meet</h1>
         </a>
     </div>
     
-    <div class="register-card">
+    <div class="register-card mt-0">
         <div class="register-header">
             <h1 class="register-title">Créer un compte</h1>
             <p class="register-subtitle">Rejoignez Vaca-Meet pour gérer votre camping</p>
@@ -127,9 +127,9 @@
 {% endblock %}
 
 {% block footer %}
-<footer class="footer mt-auto py-1">
+<footer class="footer mt-auto py-1 fixed-bottom bg-light shadow-sm">
     <div class="container text-center">
-        <p class="mb-0 text-muted small">&copy; {{ "now"|date("Y") }} Vaca-Meet - Application pour gérants de campings</p>
+        <p class="mb-0 fw-bold">© Vaca Meet</p>
     </div>
 </footer>
 {% endblock %} 

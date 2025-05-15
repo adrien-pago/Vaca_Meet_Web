@@ -145,8 +145,8 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 10
-        yield "<div class=\"auth-page-container\">
-    <div class=\"register-logo text-center mt-5 mb-4\">
+        yield "<div class=\"auth-page-container pt-0 mt-0\">
+    <div class=\"register-logo text-center mt-0 mb-0\">
         <a href=\"";
         // line 12
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
@@ -155,7 +155,7 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         </a>
     </div>
     
-    <div class=\"register-card\">
+    <div class=\"register-card mt-0\">
         <div class=\"register-header\">
             <h1 class=\"register-title\">Créer un compte</h1>
             <p class=\"register-subtitle\">Rejoignez Vaca-Meet pour gérer votre camping</p>
@@ -334,12 +334,9 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
         // line 130
-        yield "<footer class=\"footer mt-auto py-1\">
+        yield "<footer class=\"footer mt-auto py-1 fixed-bottom bg-light shadow-sm\">
     <div class=\"container text-center\">
-        <p class=\"mb-0 text-muted small\">&copy; ";
-        // line 132
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate("now", "Y"), "html", null, true);
-        yield " Vaca-Meet - Application pour gérants de campings</p>
+        <p class=\"mb-0 fw-bold\">© Vaca Meet</p>
     </div>
 </footer>
 ";
@@ -373,7 +370,7 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  341 => 132,  337 => 130,  324 => 129,  308 => 123,  301 => 119,  290 => 111,  284 => 108,  281 => 107,  279 => 105,  252 => 81,  245 => 77,  242 => 76,  240 => 74,  224 => 61,  218 => 60,  215 => 59,  213 => 57,  206 => 53,  200 => 52,  197 => 51,  195 => 49,  187 => 44,  152 => 12,  148 => 10,  135 => 9,  113 => 7,  90 => 5,  67 => 3,  44 => 1,);
+        return array (  337 => 130,  324 => 129,  308 => 123,  301 => 119,  290 => 111,  284 => 108,  281 => 107,  279 => 105,  252 => 81,  245 => 77,  242 => 76,  240 => 74,  224 => 61,  218 => 60,  215 => 59,  213 => 57,  206 => 53,  200 => 52,  197 => 51,  195 => 49,  187 => 44,  152 => 12,  148 => 10,  135 => 9,  113 => 7,  90 => 5,  67 => 3,  44 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -387,14 +384,14 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
 {% block header %}{% endblock %}
 
 {% block body %}
-<div class=\"auth-page-container\">
-    <div class=\"register-logo text-center mt-5 mb-4\">
+<div class=\"auth-page-container pt-0 mt-0\">
+    <div class=\"register-logo text-center mt-0 mb-0\">
         <a href=\"{{ path('app_home') }}\">
             <h1 class=\"display-3 text-primary\">Vaca-Meet</h1>
         </a>
     </div>
     
-    <div class=\"register-card\">
+    <div class=\"register-card mt-0\">
         <div class=\"register-header\">
             <h1 class=\"register-title\">Créer un compte</h1>
             <p class=\"register-subtitle\">Rejoignez Vaca-Meet pour gérer votre camping</p>
@@ -507,11 +504,11 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
 {% endblock %}
 
 {% block footer %}
-<footer class=\"footer mt-auto py-1\">
+<footer class=\"footer mt-auto py-1 fixed-bottom bg-light shadow-sm\">
     <div class=\"container text-center\">
-        <p class=\"mb-0 text-muted small\">&copy; {{ \"now\"|date(\"Y\") }} Vaca-Meet - Application pour gérants de campings</p>
+        <p class=\"mb-0 fw-bold\">© Vaca Meet</p>
     </div>
 </footer>
-{% endblock %} ", "registration/register.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-Application-Web-SYMFONY\\templates\\registration\\register.html.twig");
+{% endblock %} ", "registration/register.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-WEB\\templates\\registration\\register.html.twig");
     }
 }
