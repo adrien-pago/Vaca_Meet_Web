@@ -145,24 +145,24 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 10
-        yield "<div class=\"auth-page-container pt-0 mt-0\">
-    <div class=\"register-logo text-center mt-0 mb-0\">
+        yield "<div class=\"auth-page-container pt-0 mt-n3\">
+    <div class=\"register-logo text-center mt-n3 mb-0\">
         <a href=\"";
         // line 12
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
         yield "\">
-            <h1 class=\"display-3 text-primary\">Vaca-Meet</h1>
+            <h1 class=\"display-3 text-primary mb-0\">Vaca-Meet</h1>
         </a>
     </div>
     
-    <div class=\"register-card mt-0\">
-        <div class=\"register-header\">
-            <h1 class=\"register-title\">Créer un compte</h1>
-            <p class=\"register-subtitle\">Rejoignez Vaca-Meet pour gérer votre camping</p>
+    <div class=\"register-card mt-0 pt-2\">
+        <div class=\"register-header py-2\">
+            <h1 class=\"register-title mb-0\">Créer un compte</h1>
+            <p class=\"register-subtitle mb-0\">Rejoignez Vaca-Meet pour gérer votre camping</p>
         </div>
         
         <div class=\"register-body\">
-            <div class=\"progress-container\">
+            <div class=\"progress-container mb-2\">
                 <div class=\"progress-steps\">
                     <div class=\"progress-step active\">
                         <span>1</span>
@@ -187,9 +187,9 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 44, $this->source); })()), 'form_start', ["attr" => ["class" => "register-form"]]);
         yield "
                 <div class=\"registration-step active\" id=\"step-1\">
-                    <h3 class=\"registration-step-title\">Vos informations</h3>
+                    <h3 class=\"registration-step-title mb-2\">Vos informations</h3>
                     
-                    <div class=\"form-group\">
+                    <div class=\"form-group mb-2\">
                         ";
         // line 49
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 49, $this->source); })()), "username", [], "any", false, false, false, 49), 'widget', ["attr" => ["class" => "form-control", "placeholder" => " "]]);
@@ -207,7 +207,7 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         yield "
                     </div>
                     
-                    <div class=\"form-group\">
+                    <div class=\"form-group mb-2\">
                         ";
         // line 57
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 57, $this->source); })()), "email", [], "any", false, false, false, 57), 'widget', ["attr" => ["class" => "form-control", "placeholder" => " "]]);
@@ -232,9 +232,9 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
                 </div>
                 
                 <div class=\"registration-step\" id=\"step-2\">
-                    <h3 class=\"registration-step-title\">Sécurisation du compte</h3>
+                    <h3 class=\"registration-step-title mb-2\">Sécurisation du compte</h3>
                     
-                    <div class=\"form-group\">
+                    <div class=\"form-group mb-2\">
                         ";
         // line 74
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 74, $this->source); })()), "plainPassword", [], "any", false, false, false, 74), 'widget', ["attr" => ["class" => "form-control", "placeholder" => " "]]);
@@ -253,7 +253,7 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         yield "
                     </div>
                     
-                    <div class=\"password-strength\">
+                    <div class=\"password-strength mb-2\">
                         <div class=\"strength-meter\">
                             <div class=\"strength-meter-fill\"></div>
                         </div>
@@ -265,15 +265,15 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
                     </div>
                     
                     <div class=\"step-buttons\">
-                        <button type=\"button\" class=\"btn btn-prev\">Retour</button>
+                        <button type=\"button\" class=\"btn btn-prev border border-primary text-primary\">Retour</button>
                         <button type=\"button\" class=\"btn btn-next\">Continuer</button>
                     </div>
                 </div>
                 
                 <div class=\"registration-step\" id=\"step-3\">
-                    <h3 class=\"registration-step-title\">Finaliser l'inscription</h3>
+                    <h3 class=\"registration-step-title mb-2\">Finaliser l'inscription</h3>
                     
-                    <div class=\"terms-check\">
+                    <div class=\"terms-check mb-2\">
                         ";
         // line 105
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 105, $this->source); })()), "agreeTerms", [], "any", false, false, false, 105), 'widget', ["attr" => ["class" => "form-check-input"]]);
@@ -292,7 +292,7 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
                     </div>
                     
                     <div class=\"step-buttons\">
-                        <button type=\"button\" class=\"btn btn-prev\">Retour</button>
+                        <button type=\"button\" class=\"btn btn-prev border border-primary text-primary\">Retour</button>
                         <button type=\"submit\" class=\"register-btn\">Créer mon compte</button>
                     </div>
                 </div>
@@ -384,21 +384,21 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
 {% block header %}{% endblock %}
 
 {% block body %}
-<div class=\"auth-page-container pt-0 mt-0\">
-    <div class=\"register-logo text-center mt-0 mb-0\">
+<div class=\"auth-page-container pt-0 mt-n3\">
+    <div class=\"register-logo text-center mt-n3 mb-0\">
         <a href=\"{{ path('app_home') }}\">
-            <h1 class=\"display-3 text-primary\">Vaca-Meet</h1>
+            <h1 class=\"display-3 text-primary mb-0\">Vaca-Meet</h1>
         </a>
     </div>
     
-    <div class=\"register-card mt-0\">
-        <div class=\"register-header\">
-            <h1 class=\"register-title\">Créer un compte</h1>
-            <p class=\"register-subtitle\">Rejoignez Vaca-Meet pour gérer votre camping</p>
+    <div class=\"register-card mt-0 pt-2\">
+        <div class=\"register-header py-2\">
+            <h1 class=\"register-title mb-0\">Créer un compte</h1>
+            <p class=\"register-subtitle mb-0\">Rejoignez Vaca-Meet pour gérer votre camping</p>
         </div>
         
         <div class=\"register-body\">
-            <div class=\"progress-container\">
+            <div class=\"progress-container mb-2\">
                 <div class=\"progress-steps\">
                     <div class=\"progress-step active\">
                         <span>1</span>
@@ -420,9 +420,9 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
             
             {{ form_start(registrationForm, {'attr': {'class': 'register-form'}}) }}
                 <div class=\"registration-step active\" id=\"step-1\">
-                    <h3 class=\"registration-step-title\">Vos informations</h3>
+                    <h3 class=\"registration-step-title mb-2\">Vos informations</h3>
                     
-                    <div class=\"form-group\">
+                    <div class=\"form-group mb-2\">
                         {{ form_widget(registrationForm.username, {
                             'attr': {'class': 'form-control', 'placeholder': ' '}
                         }) }}
@@ -430,7 +430,7 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
                         {{ form_errors(registrationForm.username) }}
                     </div>
                     
-                    <div class=\"form-group\">
+                    <div class=\"form-group mb-2\">
                         {{ form_widget(registrationForm.email, {
                             'attr': {'class': 'form-control', 'placeholder': ' '}
                         }) }}
@@ -445,9 +445,9 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
                 </div>
                 
                 <div class=\"registration-step\" id=\"step-2\">
-                    <h3 class=\"registration-step-title\">Sécurisation du compte</h3>
+                    <h3 class=\"registration-step-title mb-2\">Sécurisation du compte</h3>
                     
-                    <div class=\"form-group\">
+                    <div class=\"form-group mb-2\">
                         {{ form_widget(registrationForm.plainPassword, {
                             'attr': {'class': 'form-control', 'placeholder': ' '}
                         }) }}
@@ -458,7 +458,7 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
                         {{ form_errors(registrationForm.plainPassword) }}
                     </div>
                     
-                    <div class=\"password-strength\">
+                    <div class=\"password-strength mb-2\">
                         <div class=\"strength-meter\">
                             <div class=\"strength-meter-fill\"></div>
                         </div>
@@ -470,15 +470,15 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
                     </div>
                     
                     <div class=\"step-buttons\">
-                        <button type=\"button\" class=\"btn btn-prev\">Retour</button>
+                        <button type=\"button\" class=\"btn btn-prev border border-primary text-primary\">Retour</button>
                         <button type=\"button\" class=\"btn btn-next\">Continuer</button>
                     </div>
                 </div>
                 
                 <div class=\"registration-step\" id=\"step-3\">
-                    <h3 class=\"registration-step-title\">Finaliser l'inscription</h3>
+                    <h3 class=\"registration-step-title mb-2\">Finaliser l'inscription</h3>
                     
-                    <div class=\"terms-check\">
+                    <div class=\"terms-check mb-2\">
                         {{ form_widget(registrationForm.agreeTerms, {
                             'attr': {'class': 'form-check-input'}
                         }) }}
@@ -489,7 +489,7 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
                     </div>
                     
                     <div class=\"step-buttons\">
-                        <button type=\"button\" class=\"btn btn-prev\">Retour</button>
+                        <button type=\"button\" class=\"btn btn-prev border border-primary text-primary\">Retour</button>
                         <button type=\"submit\" class=\"register-btn\">Créer mon compte</button>
                     </div>
                 </div>

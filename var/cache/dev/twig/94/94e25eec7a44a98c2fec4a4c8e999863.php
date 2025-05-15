@@ -145,23 +145,23 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 10
-        yield "<div class=\"auth-page-container pt-0 mt-0\">
-    <div class=\"login-logo text-center mt-0 mb-0\">
+        yield "<div class=\"auth-page-container pt-0 mt-n3\">
+    <div class=\"login-logo text-center mt-n3 mb-0\">
         <a href=\"";
         // line 12
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
         yield "\">
-            <h1 class=\"display-3 text-primary\">Vaca-Meet</h1>
+            <h1 class=\"display-3 text-primary mb-0\">Vaca-Meet</h1>
         </a>
     </div>
     
-    <div class=\"login-card mt-0\">
-        <div class=\"login-header\">
-            <h1 class=\"login-title\">Connexion</h1>
-            <p class=\"login-subtitle\">Accédez à votre espace de gestion</p>
+    <div class=\"login-card mt-0 p-0\">
+        <div class=\"login-header py-2\">
+            <h1 class=\"login-title mb-0\">Connexion</h1>
+            <p class=\"login-subtitle mb-0\">Accédez à votre espace de gestion</p>
         </div>
         
-        <div class=\"login-body\">
+        <div class=\"login-body p-3\">
             <form method=\"post\" class=\"login-form\">
                 ";
         // line 25
@@ -177,7 +177,7 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
         }
         // line 30
         yield "
-                <div class=\"form-group\">
+                <div class=\"form-group mb-2\">
                     <input type=\"email\" value=\"";
         // line 32
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 32, $this->source); })()), "html", null, true);
@@ -185,7 +185,7 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
                     <label for=\"inputEmail\" class=\"form-label\">Email</label>
                 </div>
                 
-                <div class=\"form-group\">
+                <div class=\"form-group mb-2\">
                     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required placeholder=\" \">
                     <label for=\"inputPassword\" class=\"form-label\">Mot de passe</label>
                     <button type=\"button\" id=\"toggle-password\" class=\"btn btn-sm text-muted position-absolute end-0 top-50 translate-middle-y me-3\" style=\"background:none; border:none;\">
@@ -198,12 +198,12 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         yield "\">
 
-                <div class=\"form-check\">
+                <div class=\"form-check mb-2\">
                     <input type=\"checkbox\" class=\"form-check-input\" id=\"rememberMe\" name=\"_remember_me\">
                     <label class=\"form-check-label\" for=\"rememberMe\">Se souvenir de moi</label>
                 </div>
 
-                <div class=\"forgot-password\">
+                <div class=\"forgot-password mb-2\">
                     <a href=\"#\">
                         <i class=\"bi bi-question-circle\"></i> Mot de passe oublié?
                     </a>
@@ -297,20 +297,20 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
 {% block header %}{% endblock %}
 
 {% block body %}
-<div class=\"auth-page-container pt-0 mt-0\">
-    <div class=\"login-logo text-center mt-0 mb-0\">
+<div class=\"auth-page-container pt-0 mt-n3\">
+    <div class=\"login-logo text-center mt-n3 mb-0\">
         <a href=\"{{ path('app_home') }}\">
-            <h1 class=\"display-3 text-primary\">Vaca-Meet</h1>
+            <h1 class=\"display-3 text-primary mb-0\">Vaca-Meet</h1>
         </a>
     </div>
     
-    <div class=\"login-card mt-0\">
-        <div class=\"login-header\">
-            <h1 class=\"login-title\">Connexion</h1>
-            <p class=\"login-subtitle\">Accédez à votre espace de gestion</p>
+    <div class=\"login-card mt-0 p-0\">
+        <div class=\"login-header py-2\">
+            <h1 class=\"login-title mb-0\">Connexion</h1>
+            <p class=\"login-subtitle mb-0\">Accédez à votre espace de gestion</p>
         </div>
         
-        <div class=\"login-body\">
+        <div class=\"login-body p-3\">
             <form method=\"post\" class=\"login-form\">
                 {% if error %}
                     <div class=\"alert alert-danger\">
@@ -318,12 +318,12 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
                     </div>
                 {% endif %}
 
-                <div class=\"form-group\">
+                <div class=\"form-group mb-2\">
                     <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus placeholder=\" \">
                     <label for=\"inputEmail\" class=\"form-label\">Email</label>
                 </div>
                 
-                <div class=\"form-group\">
+                <div class=\"form-group mb-2\">
                     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required placeholder=\" \">
                     <label for=\"inputPassword\" class=\"form-label\">Mot de passe</label>
                     <button type=\"button\" id=\"toggle-password\" class=\"btn btn-sm text-muted position-absolute end-0 top-50 translate-middle-y me-3\" style=\"background:none; border:none;\">
@@ -333,12 +333,12 @@ class __TwigTemplate_63d548307176615cb02578876b0cbe0a extends Template
 
                 <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
 
-                <div class=\"form-check\">
+                <div class=\"form-check mb-2\">
                     <input type=\"checkbox\" class=\"form-check-input\" id=\"rememberMe\" name=\"_remember_me\">
                     <label class=\"form-check-label\" for=\"rememberMe\">Se souvenir de moi</label>
                 </div>
 
-                <div class=\"forgot-password\">
+                <div class=\"forgot-password mb-2\">
                     <a href=\"#\">
                         <i class=\"bi bi-question-circle\"></i> Mot de passe oublié?
                     </a>
