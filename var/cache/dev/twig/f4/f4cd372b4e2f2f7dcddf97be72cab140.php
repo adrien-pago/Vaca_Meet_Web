@@ -155,13 +155,13 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         </a>
     </div>
     
-    <div class=\"register-card mt-0 pt-2\">
+    <div class=\"register-card mt-0 p-0\">
         <div class=\"register-header py-2\">
             <h1 class=\"register-title mb-0\">Créer un compte</h1>
             <p class=\"register-subtitle mb-0\">Rejoignez Vaca-Meet pour gérer votre camping</p>
         </div>
         
-        <div class=\"register-body\">
+        <div class=\"register-body p-3\">
             <div class=\"progress-container mb-2\">
                 <div class=\"progress-steps\">
                     <div class=\"progress-step active\">
@@ -391,13 +391,13 @@ class __TwigTemplate_c635fa3e85382f1c3c589c1fb8bf8123 extends Template
         </a>
     </div>
     
-    <div class=\"register-card mt-0 pt-2\">
+    <div class=\"register-card mt-0 p-0\">
         <div class=\"register-header py-2\">
             <h1 class=\"register-title mb-0\">Créer un compte</h1>
             <p class=\"register-subtitle mb-0\">Rejoignez Vaca-Meet pour gérer votre camping</p>
         </div>
         
-        <div class=\"register-body\">
+        <div class=\"register-body p-3\">
             <div class=\"progress-container mb-2\">
                 <div class=\"progress-steps\">
                     <div class=\"progress-step active\">

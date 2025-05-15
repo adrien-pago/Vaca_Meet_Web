@@ -202,3 +202,6 @@ c33709,127.0.0.1,GET,http://127.0.0.1:8000/.well-known/appspecific/com.chrome.de
 50dcfc,127.0.0.1,GET,http://127.0.0.1:8000/register,1747301776,,200,request
 b6151b,127.0.0.1,GET,http://127.0.0.1:8000/.well-known/appspecific/com.chrome.devtools.json,1747301777,8985a4,404,request
 8985a4,127.0.0.1,GET,http://127.0.0.1:8000/.well-known/appspecific/com.chrome.devtools.json,1747301777,,404,request
+3ea359,127.0.0.1,GET,http://127.0.0.1:8000/register,1747301863,,200,request
+c23b3e,127.0.0.1,GET,http://127.0.0.1:8000/.well-known/appspecific/com.chrome.devtools.json,1747301863,22260b,404,request
+22260b,127.0.0.1,GET,http://127.0.0.1:8000/.well-known/appspecific/com.chrome.devtools.json,1747301863,,404,request
