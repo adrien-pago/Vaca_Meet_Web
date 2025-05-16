@@ -215,6 +215,39 @@
     vertical-align: middle;
 }
 
+/* Style pour l'affichage de la date de la semaine */
+.week-date-display {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+}
+
+/* Styles pour les boutons d'action dans la modale de gestion d'activités */
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.edit-activity-btn, .delete-activity-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.edit-activity-btn i, .delete-activity-btn i {
+    font-size: 1rem;
+}
+
 /* Styles pour les modales de modification et suppression */
 #editActivityModal label {
     font-weight: 500;
@@ -250,26 +283,350 @@
     height: 48px !important;
 }
 
+/* Pour l'affichage spécifique mobile de la semaine actuelle */
+.current-week-mobile {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.current-week-mobile .week-date {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+@media (max-width: 992px) {
+    .planning-table th, 
+    .planning-table td {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .planning-title {
+        font-size: 1.6rem;
+    }
+    
+    .planning-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .activity-name {
+        font-size: 0.9rem;
+    }
+    
+    .btn-nav {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 768px) {
     .planning-container {
         padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 10px;
+    }
+    
+    .planning-title {
+        font-size: 1.4rem;
     }
     
     .planning-navigation {
         flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+        align-items: stretch;
+    }
+    
+    /* Ajout d'un conteneur flex pour les boutons de navigation */
+    .planning-navigation:after {
+        content: "";
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         gap: 0.5rem;
+    }
+    
+    /* Modification pour que les boutons de navigation soient sur la même ligne */
+    .planning-navigation .btn-nav {
+        width: calc(50% - 0.25rem);
+        justify-content: center;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.5rem;
+        display: inline-flex;
+    }
+    
+    /* Réorganiser les boutons dans un conteneur flex */
+    .planning-navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
     
     .current-week {
         order: -1;
         margin-bottom: 0.5rem;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    /* Gestionnaire d'activités - tableau optimisé */
+    #manageActivitiesModal .table {
+        font-size: 0.85rem;
+    }
+    
+    #manageActivitiesModal .table th,
+    #manageActivitiesModal .table td {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    /* Réduire la taille des boutons d'action et les mettre sur une ligne */
+    #manageActivitiesModal .btn-sm {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+        margin: 0 0.1rem;
+    }
+    
+    /* Masquer certaines colonnes moins importantes sur mobile */
+    #manageActivitiesModal .table .mobile-hide {
+        display: none;
     }
     
     .activity-filters {
         gap: 0.5rem;
+        flex-direction: row;
+    }
+    
+    .filter-item {
+        width: calc(50% - 0.5rem);
+        box-sizing: border-box;
+        margin-bottom: 0.5rem;
     }
     
     .filter-label {
         font-size: 0.8rem;
+    }
+    
+    .add-activity-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .btn-add-activity, .btn-manage-activity {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Ajustements pour les modales sur mobile */
+    .modal-dialog {
+        margin: 0.5rem;
+        max-width: 100%;
+    }
+    
+    #addActivityModal .modal-content,
+    #editActivityModal .modal-content,
+    #manageActivitiesModal .modal-content,
+    #deleteConfirmModal .modal-content {
+        border-radius: 10px;
+    }
+    
+    /* Pour les formulaires dans les modales */
+    .row > [class*="col-"] {
+        margin-bottom: 0.75rem;
+    }
+    
+    .action-buttons {
+        gap: 0.1rem;
+    }
+    
+    .planning-navigation-buttons {
+        margin-top: 0.5rem;
+    }
+
+    .week-date-display {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .edit-activity-btn, .delete-activity-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .edit-activity-btn i, .delete-activity-btn i {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Styles pour très petits écrans (téléphones) */
+    .planning-container {
+        padding: 0.75rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+    
+    .planning-table {
+        border-spacing: 2px;
+    }
+    
+    .planning-table th {
+        padding: 0.4rem 0.2rem;
+        font-size: 0.75rem;
+    }
+    
+    .planning-table td {
+        height: 50px;
+        padding: 0.3rem;
+        font-size: 0.75rem;
+    }
+    
+    .planning-table .time-col {
+        width: 60px;
+        font-size: 0.7rem;
+    }
+    
+    .time-slot {
+        font-size: 0.7rem;
+    }
+    
+    .activity-name {
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .activity-item {
+        padding: 0.25rem;
+    }
+    
+    /* Transformations plus radicales pour les petits écrans */
+    .planning-table {
+        /* Vue en mode cards pour les tout petits écrans */
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    
+    .planning-table::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .planning-table::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+    }
+    
+    /* Style pour les formulaires dans les modales */
+    #addActivityModal .form-control,
+    #addActivityModal .form-select,
+    #editActivityModal .form-control,
+    #editActivityModal .form-select {
+        font-size: 0.9rem;
+    }
+    
+    .custom-height {
+        height: 40px !important;
+    }
+    
+    /* Ajuster les options de récurrence pour qu'elles tiennent sur petits écrans */
+    #recurringOptions .form-check {
+        margin-right: 0.25rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Optimisations supplémentaires pour le tableau de gestion d'activités */
+    #manageActivitiesModal .table {
+        font-size: 0.75rem;
+    }
+    
+    #manageActivitiesModal .table th,
+    #manageActivitiesModal .table td {
+        padding: 0.4rem 0.2rem;
+    }
+    
+    /* Réduire davantage les boutons pour les petits écrans */
+    #manageActivitiesModal .btn-sm {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.25rem;
+        display: inline-block;
+        margin-bottom: 0;
+        width: auto;
+        max-width: 30px;
+        overflow: hidden;
+    }
+    
+    /* Enlever la marge à gauche pour le bouton supprimer */
+    #manageActivitiesModal .delete-activity-btn {
+        margin-left: 0;
+    }
+    
+    /* Modifier l'affichage des icônes pour gagner de l'espace */
+    #manageActivitiesModal .btn-sm i {
+        margin-right: 0;
+    }
+    
+    /* Solution plus radicale si les boutons ne tiennent toujours pas */
+    #manageActivitiesModal .edit-activity-btn,
+    #manageActivitiesModal .delete-activity-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        margin: 0.1rem 0;
+        flex-shrink: 0;
+    }
+    
+    /* Assurer que les boutons restent sur la même ligne même sur très petits écrans */
+    .action-buttons {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    
+    /* Ajustements de la largeur des colonnes dans le tableau */
+    #manageActivitiesModal .actions-column {
+        width: 70px;
+    }
+
+    .week-date-display {
+        font-size: 0.9rem;
+    }
+    
+    .edit-activity-btn, .delete-activity-btn {
+        width: 28px;
+        height: 28px;
+        margin: 0 0.1rem;
+    }
+    
+    .edit-activity-btn i, .delete-activity-btn i {
+        font-size: 0.8rem;
+    }
+}
+
+/* Styles globaux à ajouter en dehors des media queries */
+/* Ces classes seront utilisées dans la vue pour masquer/montrer des éléments selon le contexte */
+@media (max-width: 768px) {
+    .d-md-none {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .d-md-block {
+        display: block !important;
+    }
+    
+    .planning-navigation-buttons {
+        display: none !important;
     }
 }

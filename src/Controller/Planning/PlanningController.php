@@ -193,7 +193,6 @@ class PlanningController extends AbstractController
                 // Définir les autres propriétés
                 $activity->setLocation(null);
                 $activity->setMaxParticipants(null);
-                $activity->setIsRecurring(false); // Chaque instance est non récurrente
                 
                 // Persister
                 $entityManager->persist($activity);
@@ -215,7 +214,6 @@ class PlanningController extends AbstractController
             // Définir les autres propriétés
             $activity->setLocation(null);
             $activity->setMaxParticipants(null);
-            $activity->setIsRecurring(false);
             
             // Persister
             $entityManager->persist($activity);

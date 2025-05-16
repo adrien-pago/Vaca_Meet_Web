@@ -7,14 +7,25 @@
     <h1 class="planning-title">Planning des Activités</h1>
 
     <div class="planning-controls">
-        <h2 class="planning-subtitle">Planning hebdomadaire</h2>
         
-        <div class="planning-navigation">
+        <!-- Affichage de la date en haut pour tous les écrans -->
+        <div class="week-date-display mb-3 text-center">
+            <strong>{{ weekDisplay }}</strong>
+            {% if "now"|date_modify("monday this week")|date("Y-m-d") != startOfWeek|date("Y-m-d") %}
+                <a href="{{ path('app_planning_index') }}" class="btn btn-sm btn-outline-primary ms-2">
+                    <i class="bi bi-calendar-week"></i> Semaine actuelle
+                </a>
+            {% else %}
+                <span class="badge bg-success ms-2">Semaine actuelle</span>
+            {% endif %}
+        </div>
+        
+        <div class="planning-navigation d-none d-md-flex">
             <a href="{{ path('app_planning_index', {'week': previousWeek|date('Y-m-d')}) }}" class="btn btn-nav">
                 <i class="bi bi-chevron-left"></i> Semaine précédente
             </a>
             
-            <div class="current-week">
+            <div class="current-week d-none">
                 {{ weekDisplay }}
                 {% if "now"|date_modify("monday this week")|date("Y-m-d") != startOfWeek|date("Y-m-d") %}
                     <a href="{{ path('app_planning_index') }}" class="btn btn-sm btn-outline-primary ms-2">
@@ -24,7 +35,33 @@
                     <span class="badge bg-success ms-2">Semaine actuelle</span>
                 {% endif %}
             </div>
-            
+                
+            <a href="{{ path('app_planning_index', {'week': nextWeek|date('Y-m-d')}) }}" class="btn btn-nav">
+                Semaine suivante <i class="bi bi-chevron-right"></i>
+            </a>
+        </div>
+        
+        <!-- Version mobile : affichage de la semaine actuelle -->
+        <div class="d-md-none current-week-mobile mb-3">
+            <div class="week-date text-center">{{ weekDisplay }}</div>
+            {% if "now"|date_modify("monday this week")|date("Y-m-d") != startOfWeek|date("Y-m-d") %}
+                <div class="text-center mt-1">
+                    <a href="{{ path('app_planning_index') }}" class="btn btn-sm btn-outline-primary">
+                        <i class="bi bi-calendar-week"></i> Revenir à la semaine actuelle
+                    </a>
+                </div>
+            {% else %}
+                <div class="text-center mt-1">
+                    <span class="badge bg-success">Semaine actuelle</span>
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Boutons de navigation pour mobile uniquement -->
+        <div class="planning-navigation-buttons d-flex d-md-none">
+            <a href="{{ path('app_planning_index', {'week': previousWeek|date('Y-m-d')}) }}" class="btn btn-nav">
+                <i class="bi bi-chevron-left"></i> Semaine précédente
+            </a>
             <a href="{{ path('app_planning_index', {'week': nextWeek|date('Y-m-d')}) }}" class="btn btn-nav">
                 Semaine suivante <i class="bi bi-chevron-right"></i>
             </a>
@@ -268,11 +305,11 @@
                                 <tr>
                                     <th>Nom</th>
                                     <th>Catégorie</th>
-                                    <th>Couleur</th>
+                                    <th class="mobile-hide">Couleur</th>
                                     <th>Jour</th>
-                                    <th>Début</th>
-                                    <th>Fin</th>
-                                    <th>Actions</th>
+                                    <th class="mobile-hide">Début</th>
+                                    <th class="mobile-hide">Fin</th>
+                                    <th class="actions-column">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -280,29 +317,31 @@
                                 <tr data-activity-id="{{ activity.id }}">
                                     <td>{{ activity.name }}</td>
                                     <td>{{ activity.category.name }}</td>
-                                    <td>
+                                    <td class="mobile-hide">
                                         <span class="color-dot" style="background-color: {{ activity.category.color }}"></span>
                                         <span class="color-code">{{ activity.category.color }}</span>
                                     </td>
                                     <td>{{ activity.startDateTime|date('l')|trans({}, 'messages')|capitalize }}</td>
-                                    <td>{{ activity.startDateTime|date('H:i') }}</td>
-                                    <td>{{ activity.endDateTime|date('H:i') }}</td>
+                                    <td class="mobile-hide">{{ activity.startDateTime|date('H:i') }}</td>
+                                    <td class="mobile-hide">{{ activity.endDateTime|date('H:i') }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-sm btn-primary edit-activity-btn" 
-                                                data-activity-id="{{ activity.id }}"
-                                                data-activity-name="{{ activity.name }}"
-                                                data-activity-description="{{ activity.description }}"
-                                                data-activity-category="{{ activity.category.id }}"
-                                                data-activity-date="{{ activity.startDateTime|date('Y-m-d') }}"
-                                                data-activity-start="{{ activity.startDateTime|date('H:i') }}"
-                                                data-activity-end="{{ activity.endDateTime|date('H:i') }}">
-                                            <i class="bi bi-pencil"></i> Modifier
-                                        </button>
-                                        <button type="button" class="btn btn-sm btn-danger delete-activity-btn ms-1" 
-                                                data-activity-id="{{ activity.id }}"
-                                                data-activity-name="{{ activity.name }}">
-                                            <i class="bi bi-trash"></i> Supprimer
-                                        </button>
+                                        <div class="action-buttons">
+                                            <button type="button" class="btn btn-sm btn-primary edit-activity-btn" 
+                                                    data-activity-id="{{ activity.id }}"
+                                                    data-activity-name="{{ activity.name }}"
+                                                    data-activity-description="{{ activity.description }}"
+                                                    data-activity-category="{{ activity.category.id }}"
+                                                    data-activity-date="{{ activity.startDateTime|date('Y-m-d') }}"
+                                                    data-activity-start="{{ activity.startDateTime|date('H:i') }}"
+                                                    data-activity-end="{{ activity.endDateTime|date('H:i') }}">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger delete-activity-btn" 
+                                                    data-activity-id="{{ activity.id }}"
+                                                    data-activity-name="{{ activity.name }}">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                                 {% endfor %}

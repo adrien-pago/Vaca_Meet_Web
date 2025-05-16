@@ -101,25 +101,48 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
     <h1 class=\"planning-title\">Planning des Activités</h1>
 
     <div class=\"planning-controls\">
-        <h2 class=\"planning-subtitle\">Planning hebdomadaire</h2>
         
-        <div class=\"planning-navigation\">
-            <a href=\"";
+        <!-- Affichage de la date en haut pour tous les écrans -->
+        <div class=\"week-date-display mb-3 text-center\">
+            <strong>";
         // line 13
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index", ["week" => $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["previousWeek"]) || array_key_exists("previousWeek", $context) ? $context["previousWeek"] : (function () { throw new RuntimeError('Variable "previousWeek" does not exist.', 13, $this->source); })()), "Y-m-d")]), "html", null, true);
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 13, $this->source); })()), "html", null, true);
+        yield "</strong>
+            ";
+        // line 14
+        if (($this->extensions['Twig\Extension\CoreExtension']->formatDate($this->extensions['Twig\Extension\CoreExtension']->modifyDate("now", "monday this week"), "Y-m-d") != $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 14, $this->source); })()), "Y-m-d"))) {
+            // line 15
+            yield "                <a href=\"";
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index");
+            yield "\" class=\"btn btn-sm btn-outline-primary ms-2\">
+                    <i class=\"bi bi-calendar-week\"></i> Semaine actuelle
+                </a>
+            ";
+        } else {
+            // line 19
+            yield "                <span class=\"badge bg-success ms-2\">Semaine actuelle</span>
+            ";
+        }
+        // line 21
+        yield "        </div>
+        
+        <div class=\"planning-navigation d-none d-md-flex\">
+            <a href=\"";
+        // line 24
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index", ["week" => $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["previousWeek"]) || array_key_exists("previousWeek", $context) ? $context["previousWeek"] : (function () { throw new RuntimeError('Variable "previousWeek" does not exist.', 24, $this->source); })()), "Y-m-d")]), "html", null, true);
         yield "\" class=\"btn btn-nav\">
                 <i class=\"bi bi-chevron-left\"></i> Semaine précédente
             </a>
             
-            <div class=\"current-week\">
+            <div class=\"current-week d-none\">
                 ";
-        // line 18
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 18, $this->source); })()), "html", null, true);
+        // line 29
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 29, $this->source); })()), "html", null, true);
         yield "
                 ";
-        // line 19
-        if (($this->extensions['Twig\Extension\CoreExtension']->formatDate($this->extensions['Twig\Extension\CoreExtension']->modifyDate("now", "monday this week"), "Y-m-d") != $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 19, $this->source); })()), "Y-m-d"))) {
-            // line 20
+        // line 30
+        if (($this->extensions['Twig\Extension\CoreExtension']->formatDate($this->extensions['Twig\Extension\CoreExtension']->modifyDate("now", "monday this week"), "Y-m-d") != $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 30, $this->source); })()), "Y-m-d"))) {
+            // line 31
             yield "                    <a href=\"";
             yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index");
             yield "\" class=\"btn btn-sm btn-outline-primary ms-2\">
@@ -127,16 +150,61 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                     </a>
                 ";
         } else {
-            // line 24
+            // line 35
             yield "                    <span class=\"badge bg-success ms-2\">Semaine actuelle</span>
                 ";
         }
-        // line 26
+        // line 37
         yield "            </div>
-            
+                
             <a href=\"";
-        // line 28
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index", ["week" => $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["nextWeek"]) || array_key_exists("nextWeek", $context) ? $context["nextWeek"] : (function () { throw new RuntimeError('Variable "nextWeek" does not exist.', 28, $this->source); })()), "Y-m-d")]), "html", null, true);
+        // line 39
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index", ["week" => $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["nextWeek"]) || array_key_exists("nextWeek", $context) ? $context["nextWeek"] : (function () { throw new RuntimeError('Variable "nextWeek" does not exist.', 39, $this->source); })()), "Y-m-d")]), "html", null, true);
+        yield "\" class=\"btn btn-nav\">
+                Semaine suivante <i class=\"bi bi-chevron-right\"></i>
+            </a>
+        </div>
+        
+        <!-- Version mobile : affichage de la semaine actuelle -->
+        <div class=\"d-md-none current-week-mobile mb-3\">
+            <div class=\"week-date text-center\">";
+        // line 46
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 46, $this->source); })()), "html", null, true);
+        yield "</div>
+            ";
+        // line 47
+        if (($this->extensions['Twig\Extension\CoreExtension']->formatDate($this->extensions['Twig\Extension\CoreExtension']->modifyDate("now", "monday this week"), "Y-m-d") != $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 47, $this->source); })()), "Y-m-d"))) {
+            // line 48
+            yield "                <div class=\"text-center mt-1\">
+                    <a href=\"";
+            // line 49
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index");
+            yield "\" class=\"btn btn-sm btn-outline-primary\">
+                        <i class=\"bi bi-calendar-week\"></i> Revenir à la semaine actuelle
+                    </a>
+                </div>
+            ";
+        } else {
+            // line 54
+            yield "                <div class=\"text-center mt-1\">
+                    <span class=\"badge bg-success\">Semaine actuelle</span>
+                </div>
+            ";
+        }
+        // line 58
+        yield "        </div>
+        
+        <!-- Boutons de navigation pour mobile uniquement -->
+        <div class=\"planning-navigation-buttons d-flex d-md-none\">
+            <a href=\"";
+        // line 62
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index", ["week" => $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["previousWeek"]) || array_key_exists("previousWeek", $context) ? $context["previousWeek"] : (function () { throw new RuntimeError('Variable "previousWeek" does not exist.', 62, $this->source); })()), "Y-m-d")]), "html", null, true);
+        yield "\" class=\"btn btn-nav\">
+                <i class=\"bi bi-chevron-left\"></i> Semaine précédente
+            </a>
+            <a href=\"";
+        // line 65
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index", ["week" => $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["nextWeek"]) || array_key_exists("nextWeek", $context) ? $context["nextWeek"] : (function () { throw new RuntimeError('Variable "nextWeek" does not exist.', 65, $this->source); })()), "Y-m-d")]), "html", null, true);
         yield "\" class=\"btn btn-nav\">
                 Semaine suivante <i class=\"bi bi-chevron-right\"></i>
             </a>
@@ -159,65 +227,65 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
             </thead>
             <tbody>
                 ";
-        // line 49
-        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("activities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 49, $this->source); })()), [])) : ([]))) > 0)) {
-            // line 50
+        // line 86
+        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("activities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 86, $this->source); })()), [])) : ([]))) > 0)) {
+            // line 87
             yield "                    ";
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["planningGrid"]) || array_key_exists("planningGrid", $context) ? $context["planningGrid"] : (function () { throw new RuntimeError('Variable "planningGrid" does not exist.', 50, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["planningGrid"]) || array_key_exists("planningGrid", $context) ? $context["planningGrid"] : (function () { throw new RuntimeError('Variable "planningGrid" does not exist.', 87, $this->source); })()));
             foreach ($context['_seq'] as $context["timeLabel"] => $context["days"]) {
-                // line 51
+                // line 88
                 yield "                        <tr>
                             <td class=\"time-slot\">";
-                // line 52
+                // line 89
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["timeLabel"], "html", null, true);
                 yield "</td>
                             ";
-                // line 53
+                // line 90
                 $context['_parent'] = $context;
                 $context['_seq'] = CoreExtension::ensureTraversable(range(1, 7));
                 foreach ($context['_seq'] as $context["_key"] => $context["day"]) {
-                    // line 54
+                    // line 91
                     yield "                                <td class=\"activity-cell";
-                    if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 54)) > 0)) {
+                    if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 91)) > 0)) {
                         yield " has-activity";
                     }
                     yield "\">
                                     ";
-                    // line 55
-                    if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 55)) > 0)) {
-                        // line 56
+                    // line 92
+                    if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 92)) > 0)) {
+                        // line 93
                         yield "                                        ";
-                        $context["activity"] = CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 56), 0, [], "array", false, false, false, 56);
-                        // line 57
+                        $context["activity"] = CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 93), 0, [], "array", false, false, false, 93);
+                        // line 94
                         yield "                                        <div class=\"activity-item\" style=\"background-color: ";
-                        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 57, $this->source); })()), "category", [], "any", false, false, false, 57), "color", [], "any", false, false, false, 57), "html", null, true);
+                        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 94, $this->source); })()), "category", [], "any", false, false, false, 94), "color", [], "any", false, false, false, 94), "html", null, true);
                         yield "\">
                                             <div class=\"activity-name\">";
-                        // line 58
-                        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 58, $this->source); })()), "name", [], "any", false, false, false, 58), "html", null, true);
+                        // line 95
+                        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 95, $this->source); })()), "name", [], "any", false, false, false, 95), "html", null, true);
                         yield "</div>
                                         </div>
                                     ";
                     }
-                    // line 61
+                    // line 98
                     yield "                                </td>
                             ";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_key'], $context['day'], $context['_parent']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 63
+                // line 100
                 yield "                        </tr>
                     ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['timeLabel'], $context['days'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 65
+            // line 102
             yield "                ";
         } else {
-            // line 66
+            // line 103
             yield "                    <tr>
                         <td colspan=\"8\" class=\"text-center py-5\">
                             <div class=\"alert alert-info mb-0\">
@@ -228,7 +296,7 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                     </tr>
                 ";
         }
-        // line 75
+        // line 112
         yield "            </tbody>
         </table>
     </div>
@@ -236,22 +304,22 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
     <div class=\"filters-container mt-4 mb-3\">
         <div class=\"activity-filters\">
             ";
-        // line 81
-        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 81, $this->source); })()), [])) : ([]))) > 0)) {
-            // line 82
+        // line 118
+        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 118, $this->source); })()), [])) : ([]))) > 0)) {
+            // line 119
             yield "                ";
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 82, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 119, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 83
+                // line 120
                 yield "                    <div class=\"filter-item\">
                         <span class=\"color-dot\" style=\"background-color: ";
-                // line 84
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 84), "html", null, true);
+                // line 121
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 121), "html", null, true);
                 yield "\"></span>
                         <span class=\"filter-label\">";
-                // line 85
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 85), "html", null, true);
+                // line 122
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 122), "html", null, true);
                 yield "</span>
                     </div>
                 ";
@@ -259,16 +327,16 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['category'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 88
+            // line 125
             yield "            ";
         } else {
-            // line 89
+            // line 126
             yield "                <div class=\"text-center w-100\">
                     <p class=\"text-muted\">Aucune catégorie d'activité n'est disponible pour le moment.</p>
                 </div>
             ";
         }
-        // line 93
+        // line 130
         yield "        </div>
     </div>
     
@@ -292,7 +360,7 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
             </div>
             <div class=\"modal-body\">
                 <form id=\"addActivityForm\" data-url=\"";
-        // line 115
+        // line 152
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_add_activity");
         yield "\" data-token=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("activity_token"), "html", null, true);
@@ -302,22 +370,22 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                             <option selected disabled>Sélectionner une activité existante</option>
                             <option value=\"new\">Créer une nouvelle activité</option>
                             ";
-        // line 120
+        // line 157
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("existingActivities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["existingActivities"]) || array_key_exists("existingActivities", $context) ? $context["existingActivities"] : (function () { throw new RuntimeError('Variable "existingActivities" does not exist.', 120, $this->source); })()), [])) : ([])));
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("existingActivities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["existingActivities"]) || array_key_exists("existingActivities", $context) ? $context["existingActivities"] : (function () { throw new RuntimeError('Variable "existingActivities" does not exist.', 157, $this->source); })()), [])) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["activity"]) {
-            // line 121
+            // line 158
             yield "                                <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 121), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 158), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 121), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 158), "html", null, true);
             yield "</option>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['activity'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 123
+        // line 160
         yield "                        </select>
                     </div>
                     
@@ -336,24 +404,24 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                             <option selected disabled>Sélectionner une catégorie</option>
                             <option value=\"new\">Créer une nouvelle catégorie</option>
                             ";
-        // line 140
+        // line 177
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 140, $this->source); })()), [])) : ([])));
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 177, $this->source); })()), [])) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 141
+            // line 178
             yield "                                <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 141), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 178), "html", null, true);
             yield "\" data-color=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 141), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 178), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 141), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 178), "html", null, true);
             yield "</option>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['category'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 143
+        // line 180
         yield "                        </select>
                     </div>
                     
@@ -372,8 +440,8 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                     <div class=\"row mb-3\">
                         <div class=\"col-4\">
                             <input type=\"date\" class=\"form-control form-control-lg custom-height\" id=\"activityDate\" value=\"";
-        // line 160
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 160, $this->source); })()), "Y-m-d"), "html", null, true);
+        // line 197
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 197, $this->source); })()), "Y-m-d"), "html", null, true);
         yield "\">
                         </div>
                         <div class=\"col-4\">
@@ -475,112 +543,114 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
         <div class=\"modal-content\">
             <div class=\"modal-header\">
                 <h5 class=\"modal-title\" id=\"manageActivitiesModalLabel\">Gérer les activités de la semaine du ";
-        // line 260
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 260, $this->source); })()), "html", null, true);
+        // line 297
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 297, $this->source); })()), "html", null, true);
         yield "</h5>
                 <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Fermer\"></button>
             </div>
             <div class=\"modal-body\">
                 ";
-        // line 264
-        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("activities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 264, $this->source); })()), [])) : ([]))) > 0)) {
-            // line 265
+        // line 301
+        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("activities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 301, $this->source); })()), [])) : ([]))) > 0)) {
+            // line 302
             yield "                    <div class=\"table-responsive\">
                         <table class=\"table table-striped table-bordered\">
                             <thead>
                                 <tr>
                                     <th>Nom</th>
                                     <th>Catégorie</th>
-                                    <th>Couleur</th>
+                                    <th class=\"mobile-hide\">Couleur</th>
                                     <th>Jour</th>
-                                    <th>Début</th>
-                                    <th>Fin</th>
-                                    <th>Actions</th>
+                                    <th class=\"mobile-hide\">Début</th>
+                                    <th class=\"mobile-hide\">Fin</th>
+                                    <th class=\"actions-column\">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 ";
-            // line 279
+            // line 316
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 279, $this->source); })()));
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 316, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["activity"]) {
-                // line 280
+                // line 317
                 yield "                                <tr data-activity-id=\"";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 280), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 317), "html", null, true);
                 yield "\">
                                     <td>";
-                // line 281
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 281), "html", null, true);
+                // line 318
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 318), "html", null, true);
                 yield "</td>
                                     <td>";
-                // line 282
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 282), "name", [], "any", false, false, false, 282), "html", null, true);
+                // line 319
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 319), "name", [], "any", false, false, false, 319), "html", null, true);
                 yield "</td>
-                                    <td>
+                                    <td class=\"mobile-hide\">
                                         <span class=\"color-dot\" style=\"background-color: ";
-                // line 284
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 284), "color", [], "any", false, false, false, 284), "html", null, true);
+                // line 321
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 321), "color", [], "any", false, false, false, 321), "html", null, true);
                 yield "\"></span>
                                         <span class=\"color-code\">";
-                // line 285
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 285), "color", [], "any", false, false, false, 285), "html", null, true);
+                // line 322
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 322), "color", [], "any", false, false, false, 322), "html", null, true);
                 yield "</span>
                                     </td>
                                     <td>";
-                // line 287
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::capitalize($this->env->getCharset(), $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 287), "l"), [], "messages")), "html", null, true);
+                // line 324
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::capitalize($this->env->getCharset(), $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 324), "l"), [], "messages")), "html", null, true);
                 yield "</td>
-                                    <td>";
-                // line 288
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 288), "H:i"), "html", null, true);
+                                    <td class=\"mobile-hide\">";
+                // line 325
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 325), "H:i"), "html", null, true);
                 yield "</td>
-                                    <td>";
-                // line 289
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "endDateTime", [], "any", false, false, false, 289), "H:i"), "html", null, true);
+                                    <td class=\"mobile-hide\">";
+                // line 326
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "endDateTime", [], "any", false, false, false, 326), "H:i"), "html", null, true);
                 yield "</td>
                                     <td>
-                                        <button type=\"button\" class=\"btn btn-sm btn-primary edit-activity-btn\" 
-                                                data-activity-id=\"";
-                // line 292
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 292), "html", null, true);
+                                        <div class=\"action-buttons\">
+                                            <button type=\"button\" class=\"btn btn-sm btn-primary edit-activity-btn\" 
+                                                    data-activity-id=\"";
+                // line 330
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 330), "html", null, true);
                 yield "\"
-                                                data-activity-name=\"";
-                // line 293
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 293), "html", null, true);
+                                                    data-activity-name=\"";
+                // line 331
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 331), "html", null, true);
                 yield "\"
-                                                data-activity-description=\"";
-                // line 294
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "description", [], "any", false, false, false, 294), "html", null, true);
+                                                    data-activity-description=\"";
+                // line 332
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "description", [], "any", false, false, false, 332), "html", null, true);
                 yield "\"
-                                                data-activity-category=\"";
-                // line 295
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 295), "id", [], "any", false, false, false, 295), "html", null, true);
+                                                    data-activity-category=\"";
+                // line 333
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 333), "id", [], "any", false, false, false, 333), "html", null, true);
                 yield "\"
-                                                data-activity-date=\"";
-                // line 296
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 296), "Y-m-d"), "html", null, true);
+                                                    data-activity-date=\"";
+                // line 334
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 334), "Y-m-d"), "html", null, true);
                 yield "\"
-                                                data-activity-start=\"";
-                // line 297
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 297), "H:i"), "html", null, true);
+                                                    data-activity-start=\"";
+                // line 335
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 335), "H:i"), "html", null, true);
                 yield "\"
-                                                data-activity-end=\"";
-                // line 298
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "endDateTime", [], "any", false, false, false, 298), "H:i"), "html", null, true);
+                                                    data-activity-end=\"";
+                // line 336
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "endDateTime", [], "any", false, false, false, 336), "H:i"), "html", null, true);
                 yield "\">
-                                            <i class=\"bi bi-pencil\"></i> Modifier
-                                        </button>
-                                        <button type=\"button\" class=\"btn btn-sm btn-danger delete-activity-btn ms-1\" 
-                                                data-activity-id=\"";
-                // line 302
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 302), "html", null, true);
+                                                <i class=\"bi bi-pencil-square\"></i>
+                                            </button>
+                                            <button type=\"button\" class=\"btn btn-sm btn-danger delete-activity-btn\" 
+                                                    data-activity-id=\"";
+                // line 340
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 340), "html", null, true);
                 yield "\"
-                                                data-activity-name=\"";
-                // line 303
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 303), "html", null, true);
+                                                    data-activity-name=\"";
+                // line 341
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 341), "html", null, true);
                 yield "\">
-                                            <i class=\"bi bi-trash\"></i> Supprimer
-                                        </button>
+                                                <i class=\"bi bi-trash\"></i>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                                 ";
@@ -588,20 +658,20 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['activity'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 309
+            // line 348
             yield "                            </tbody>
                         </table>
                     </div>
                 ";
         } else {
-            // line 313
+            // line 352
             yield "                    <div class=\"alert alert-info\">
                         <i class=\"bi bi-info-circle me-2\"></i>
                         Aucune activité n'est planifiée pour cette semaine.
                     </div>
                 ";
         }
-        // line 318
+        // line 357
         yield "            </div>
             <div class=\"modal-footer\">
                 <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Fermer</button>
@@ -620,7 +690,7 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
             </div>
             <div class=\"modal-body\">
                 <form id=\"editActivityForm\" data-url=\"";
-        // line 335
+        // line 374
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_edit_activity");
         yield "\">
                     <input type=\"hidden\" id=\"editActivityId\">
@@ -630,22 +700,22 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                             <option selected disabled>Sélectionner une activité existante</option>
                             <option value=\"new\">Créer une nouvelle activité</option>
                             ";
-        // line 342
+        // line 381
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("existingActivities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["existingActivities"]) || array_key_exists("existingActivities", $context) ? $context["existingActivities"] : (function () { throw new RuntimeError('Variable "existingActivities" does not exist.', 342, $this->source); })()), [])) : ([])));
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("existingActivities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["existingActivities"]) || array_key_exists("existingActivities", $context) ? $context["existingActivities"] : (function () { throw new RuntimeError('Variable "existingActivities" does not exist.', 381, $this->source); })()), [])) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["activity"]) {
-            // line 343
+            // line 382
             yield "                                <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 343), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 382), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 343), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 382), "html", null, true);
             yield "</option>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['activity'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 345
+        // line 384
         yield "                        </select>
                     </div>
                     
@@ -663,24 +733,24 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                             <option selected disabled>Sélectionner une catégorie</option>
                             <option value=\"new\">Créer une nouvelle catégorie</option>
                             ";
-        // line 361
+        // line 400
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 361, $this->source); })()), [])) : ([])));
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 400, $this->source); })()), [])) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 362
+            // line 401
             yield "                                <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 362), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 401), "html", null, true);
             yield "\" data-color=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 362), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 401), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 362), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 401), "html", null, true);
             yield "</option>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['category'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 364
+        // line 403
         yield "                        </select>
                     </div>
                     
@@ -804,7 +874,7 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  684 => 364,  671 => 362,  667 => 361,  649 => 345,  638 => 343,  634 => 342,  624 => 335,  605 => 318,  598 => 313,  592 => 309,  580 => 303,  576 => 302,  569 => 298,  565 => 297,  561 => 296,  557 => 295,  553 => 294,  549 => 293,  545 => 292,  539 => 289,  535 => 288,  531 => 287,  526 => 285,  522 => 284,  517 => 282,  513 => 281,  508 => 280,  504 => 279,  488 => 265,  486 => 264,  479 => 260,  376 => 160,  357 => 143,  344 => 141,  340 => 140,  321 => 123,  310 => 121,  306 => 120,  296 => 115,  272 => 93,  266 => 89,  263 => 88,  254 => 85,  250 => 84,  247 => 83,  242 => 82,  240 => 81,  232 => 75,  221 => 66,  218 => 65,  211 => 63,  204 => 61,  198 => 58,  193 => 57,  190 => 56,  188 => 55,  181 => 54,  177 => 53,  173 => 52,  170 => 51,  165 => 50,  163 => 49,  139 => 28,  135 => 26,  131 => 24,  123 => 20,  121 => 19,  117 => 18,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  754 => 403,  741 => 401,  737 => 400,  719 => 384,  708 => 382,  704 => 381,  694 => 374,  675 => 357,  668 => 352,  662 => 348,  649 => 341,  645 => 340,  638 => 336,  634 => 335,  630 => 334,  626 => 333,  622 => 332,  618 => 331,  614 => 330,  607 => 326,  603 => 325,  599 => 324,  594 => 322,  590 => 321,  585 => 319,  581 => 318,  576 => 317,  572 => 316,  556 => 302,  554 => 301,  547 => 297,  444 => 197,  425 => 180,  412 => 178,  408 => 177,  389 => 160,  378 => 158,  374 => 157,  364 => 152,  340 => 130,  334 => 126,  331 => 125,  322 => 122,  318 => 121,  315 => 120,  310 => 119,  308 => 118,  300 => 112,  289 => 103,  286 => 102,  279 => 100,  272 => 98,  266 => 95,  261 => 94,  258 => 93,  256 => 92,  249 => 91,  245 => 90,  241 => 89,  238 => 88,  233 => 87,  231 => 86,  207 => 65,  201 => 62,  195 => 58,  189 => 54,  181 => 49,  178 => 48,  176 => 47,  172 => 46,  162 => 39,  158 => 37,  154 => 35,  146 => 31,  144 => 30,  140 => 29,  132 => 24,  127 => 21,  123 => 19,  115 => 15,  113 => 14,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -818,14 +888,25 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
     <h1 class=\"planning-title\">Planning des Activités</h1>
 
     <div class=\"planning-controls\">
-        <h2 class=\"planning-subtitle\">Planning hebdomadaire</h2>
         
-        <div class=\"planning-navigation\">
+        <!-- Affichage de la date en haut pour tous les écrans -->
+        <div class=\"week-date-display mb-3 text-center\">
+            <strong>{{ weekDisplay }}</strong>
+            {% if \"now\"|date_modify(\"monday this week\")|date(\"Y-m-d\") != startOfWeek|date(\"Y-m-d\") %}
+                <a href=\"{{ path('app_planning_index') }}\" class=\"btn btn-sm btn-outline-primary ms-2\">
+                    <i class=\"bi bi-calendar-week\"></i> Semaine actuelle
+                </a>
+            {% else %}
+                <span class=\"badge bg-success ms-2\">Semaine actuelle</span>
+            {% endif %}
+        </div>
+        
+        <div class=\"planning-navigation d-none d-md-flex\">
             <a href=\"{{ path('app_planning_index', {'week': previousWeek|date('Y-m-d')}) }}\" class=\"btn btn-nav\">
                 <i class=\"bi bi-chevron-left\"></i> Semaine précédente
             </a>
             
-            <div class=\"current-week\">
+            <div class=\"current-week d-none\">
                 {{ weekDisplay }}
                 {% if \"now\"|date_modify(\"monday this week\")|date(\"Y-m-d\") != startOfWeek|date(\"Y-m-d\") %}
                     <a href=\"{{ path('app_planning_index') }}\" class=\"btn btn-sm btn-outline-primary ms-2\">
@@ -835,7 +916,33 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                     <span class=\"badge bg-success ms-2\">Semaine actuelle</span>
                 {% endif %}
             </div>
-            
+                
+            <a href=\"{{ path('app_planning_index', {'week': nextWeek|date('Y-m-d')}) }}\" class=\"btn btn-nav\">
+                Semaine suivante <i class=\"bi bi-chevron-right\"></i>
+            </a>
+        </div>
+        
+        <!-- Version mobile : affichage de la semaine actuelle -->
+        <div class=\"d-md-none current-week-mobile mb-3\">
+            <div class=\"week-date text-center\">{{ weekDisplay }}</div>
+            {% if \"now\"|date_modify(\"monday this week\")|date(\"Y-m-d\") != startOfWeek|date(\"Y-m-d\") %}
+                <div class=\"text-center mt-1\">
+                    <a href=\"{{ path('app_planning_index') }}\" class=\"btn btn-sm btn-outline-primary\">
+                        <i class=\"bi bi-calendar-week\"></i> Revenir à la semaine actuelle
+                    </a>
+                </div>
+            {% else %}
+                <div class=\"text-center mt-1\">
+                    <span class=\"badge bg-success\">Semaine actuelle</span>
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Boutons de navigation pour mobile uniquement -->
+        <div class=\"planning-navigation-buttons d-flex d-md-none\">
+            <a href=\"{{ path('app_planning_index', {'week': previousWeek|date('Y-m-d')}) }}\" class=\"btn btn-nav\">
+                <i class=\"bi bi-chevron-left\"></i> Semaine précédente
+            </a>
             <a href=\"{{ path('app_planning_index', {'week': nextWeek|date('Y-m-d')}) }}\" class=\"btn btn-nav\">
                 Semaine suivante <i class=\"bi bi-chevron-right\"></i>
             </a>
@@ -1079,11 +1186,11 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                                 <tr>
                                     <th>Nom</th>
                                     <th>Catégorie</th>
-                                    <th>Couleur</th>
+                                    <th class=\"mobile-hide\">Couleur</th>
                                     <th>Jour</th>
-                                    <th>Début</th>
-                                    <th>Fin</th>
-                                    <th>Actions</th>
+                                    <th class=\"mobile-hide\">Début</th>
+                                    <th class=\"mobile-hide\">Fin</th>
+                                    <th class=\"actions-column\">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1091,29 +1198,31 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                                 <tr data-activity-id=\"{{ activity.id }}\">
                                     <td>{{ activity.name }}</td>
                                     <td>{{ activity.category.name }}</td>
-                                    <td>
+                                    <td class=\"mobile-hide\">
                                         <span class=\"color-dot\" style=\"background-color: {{ activity.category.color }}\"></span>
                                         <span class=\"color-code\">{{ activity.category.color }}</span>
                                     </td>
                                     <td>{{ activity.startDateTime|date('l')|trans({}, 'messages')|capitalize }}</td>
-                                    <td>{{ activity.startDateTime|date('H:i') }}</td>
-                                    <td>{{ activity.endDateTime|date('H:i') }}</td>
+                                    <td class=\"mobile-hide\">{{ activity.startDateTime|date('H:i') }}</td>
+                                    <td class=\"mobile-hide\">{{ activity.endDateTime|date('H:i') }}</td>
                                     <td>
-                                        <button type=\"button\" class=\"btn btn-sm btn-primary edit-activity-btn\" 
-                                                data-activity-id=\"{{ activity.id }}\"
-                                                data-activity-name=\"{{ activity.name }}\"
-                                                data-activity-description=\"{{ activity.description }}\"
-                                                data-activity-category=\"{{ activity.category.id }}\"
-                                                data-activity-date=\"{{ activity.startDateTime|date('Y-m-d') }}\"
-                                                data-activity-start=\"{{ activity.startDateTime|date('H:i') }}\"
-                                                data-activity-end=\"{{ activity.endDateTime|date('H:i') }}\">
-                                            <i class=\"bi bi-pencil\"></i> Modifier
-                                        </button>
-                                        <button type=\"button\" class=\"btn btn-sm btn-danger delete-activity-btn ms-1\" 
-                                                data-activity-id=\"{{ activity.id }}\"
-                                                data-activity-name=\"{{ activity.name }}\">
-                                            <i class=\"bi bi-trash\"></i> Supprimer
-                                        </button>
+                                        <div class=\"action-buttons\">
+                                            <button type=\"button\" class=\"btn btn-sm btn-primary edit-activity-btn\" 
+                                                    data-activity-id=\"{{ activity.id }}\"
+                                                    data-activity-name=\"{{ activity.name }}\"
+                                                    data-activity-description=\"{{ activity.description }}\"
+                                                    data-activity-category=\"{{ activity.category.id }}\"
+                                                    data-activity-date=\"{{ activity.startDateTime|date('Y-m-d') }}\"
+                                                    data-activity-start=\"{{ activity.startDateTime|date('H:i') }}\"
+                                                    data-activity-end=\"{{ activity.endDateTime|date('H:i') }}\">
+                                                <i class=\"bi bi-pencil-square\"></i>
+                                            </button>
+                                            <button type=\"button\" class=\"btn btn-sm btn-danger delete-activity-btn\" 
+                                                    data-activity-id=\"{{ activity.id }}\"
+                                                    data-activity-name=\"{{ activity.name }}\">
+                                                <i class=\"bi bi-trash\"></i>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                                 {% endfor %}
