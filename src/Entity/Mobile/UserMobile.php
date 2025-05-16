@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Mobile;
+namespace App\Entity;
 
 use App\Repository\UserMobileRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -21,7 +21,6 @@ class UserMobile implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 180, unique: true)]
     #[Assert\NotBlank]
-    #[Assert\Email]
     #[Groups(['user_mobile:read'])]
     private ?string $username = null;
 
@@ -38,6 +37,10 @@ class UserMobile implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     #[Groups(['user_mobile:read'])]
     private ?string $lastName = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    #[Groups(['user_mobile:read'])]
+    private ?string $theme = 'default';
 
     public function getId(): ?int
     {
@@ -129,6 +132,18 @@ class UserMobile implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastName(?string $lastName): static
     {
         $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getTheme(): ?string
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(?string $theme): static
+    {
+        $this->theme = $theme;
 
         return $this;
     }
