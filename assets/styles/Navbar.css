@@ -31,7 +31,6 @@
   box-shadow: var(--navbar-shadow);
   z-index: 1000;
   transition: all 0.3s ease;
-}
 
 .navbar-container.scrolled {
   height: var(--navbar-height-scrolled);
@@ -61,8 +60,7 @@
   position: relative;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   height: 100%;
 }
 
@@ -81,7 +79,10 @@
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 0.25rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navbar-container.scrolled .camping-name {
@@ -299,15 +300,42 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0 1rem;
+    justify-content: space-between;
   }
   
   .navbar-title {
-    font-size: 1.6rem;
+    display: none;
+  }
+  .navbar-title-link {
+    display: none;
   }
   
   .camping-name {
-    font-size: 1.2rem;
-    top: -18px;
+    font-size: 1.3rem;
+    position: static;
+    text-align: center;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    max-width: 80%;
+  }
+
+  .navbar-brand {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+  }
+  
+  .navbar-toggle {
+    margin-right: 0.5rem;
+    margin-left: auto;
+    flex-shrink: 0;
   }
   
   .navbar-menu {
@@ -317,4 +345,5 @@
     max-width: 400px;
     margin: 0 auto;
   }
+}
 }

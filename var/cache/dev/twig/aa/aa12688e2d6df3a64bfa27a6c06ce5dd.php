@@ -222,7 +222,6 @@ class __TwigTemplate_b4d3406ecc5f81fb409dc2d6b2916b1c extends Template
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_vacancier_password_update");
         yield "\" method=\"post\" id=\"password-form\">
                                     <div class=\"mb-3\">
-                                        <label for=\"password\" class=\"form-label\">Nouveau mot de passe</label>
                                         <div class=\"input-group password-input-group\">
                                             <input type=\"text\" id=\"password\" name=\"password\" class=\"form-control\" 
                                                    placeholder=\"Entrez un mot de passe\" required minlength=\"6\">
@@ -243,8 +242,8 @@ class __TwigTemplate_b4d3406ecc5f81fb409dc2d6b2916b1c extends Template
                                     <div class=\"d-grid\">
                                         <button type=\"submit\" class=\"btn btn-primary submit-btn\">
                                             <span class=\"btn-text\">";
-        // line 86
-        yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 86, $this->source); })()), "mdpVacancier", [], "any", false, false, false, 86)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ("Mettre à jour") : ("Définir"));
+        // line 85
+        yield (((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 85, $this->source); })()), "mdpVacancier", [], "any", false, false, false, 85)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) ? ("Mettre à jour") : ("Définir"));
         yield " le mot de passe</span>
                                             <div class=\"btn-icon\">
                                                 <i class=\"bi bi-arrow-right\"></i>
@@ -317,7 +316,7 @@ class __TwigTemplate_b4d3406ecc5f81fb409dc2d6b2916b1c extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  247 => 86,  222 => 64,  217 => 62,  209 => 56,  201 => 50,  190 => 42,  180 => 34,  178 => 33,  157 => 14,  144 => 13,  130 => 10,  117 => 9,  103 => 6,  90 => 5,  66 => 3,  43 => 1,);
+        return array (  246 => 85,  222 => 64,  217 => 62,  209 => 56,  201 => 50,  190 => 42,  180 => 34,  178 => 33,  157 => 14,  144 => 13,  130 => 10,  117 => 9,  103 => 6,  90 => 5,  66 => 3,  43 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -387,7 +386,6 @@ class __TwigTemplate_b4d3406ecc5f81fb409dc2d6b2916b1c extends Template
                                 
                                 <form action=\"{{ path('app_vacancier_password_update') }}\" method=\"post\" id=\"password-form\">
                                     <div class=\"mb-3\">
-                                        <label for=\"password\" class=\"form-label\">Nouveau mot de passe</label>
                                         <div class=\"input-group password-input-group\">
                                             <input type=\"text\" id=\"password\" name=\"password\" class=\"form-control\" 
                                                    placeholder=\"Entrez un mot de passe\" required minlength=\"6\">
