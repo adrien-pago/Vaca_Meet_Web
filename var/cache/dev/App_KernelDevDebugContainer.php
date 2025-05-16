@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerChVEwbY\App_KernelDevDebugContainer([
     'container.build_hash' => 'ChVEwbY',
-    'container.build_id' => '6002de9f',
-    'container.build_time' => 1747395908,
+    'container.build_id' => '1d3dbd7e',
+    'container.build_time' => 1747398787,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerChVEwbY');

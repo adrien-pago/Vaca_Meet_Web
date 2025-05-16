@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const modal = bootstrap.Modal.getInstance(document.getElementById('addActivityModal'));
                     modal.hide();
                     
-                    // Recharger la page pour afficher la nouvelle activité
+                    // Recharger la page pour afficher les nouvelles activités
                     window.location.reload();
                 }, 1500);
             } else {

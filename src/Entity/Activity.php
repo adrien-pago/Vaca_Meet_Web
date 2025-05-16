@@ -41,15 +41,9 @@ class Activity
     #[ORM\ManyToOne]
     private ?User $organizer = null;
 
-    #[ORM\Column]
-    private ?bool $isRecurring = false;
-
-    #[ORM\Column(type: Types::JSON, nullable: true)]
-    private array $recurringDays = [];
-
     public function __construct()
     {
-        $this->recurringDays = [];
+        // Code du constructeur nettoyé
     }
 
     public function getId(): ?int
@@ -149,30 +143,6 @@ class Activity
     public function setOrganizer(?User $organizer): static
     {
         $this->organizer = $organizer;
-
-        return $this;
-    }
-
-    public function isIsRecurring(): ?bool
-    {
-        return $this->isRecurring;
-    }
-
-    public function setIsRecurring(bool $isRecurring): static
-    {
-        $this->isRecurring = $isRecurring;
-
-        return $this;
-    }
-
-    public function getRecurringDays(): array
-    {
-        return $this->recurringDays;
-    }
-
-    public function setRecurringDays(?array $recurringDays): static
-    {
-        $this->recurringDays = $recurringDays;
 
         return $this;
     }

@@ -5,26 +5,27 @@
 {% block body %}
 <div class="planning-container">
     <h1 class="planning-title">Planning des Activités</h1>
-    
-    <div class="info-message mb-4">
-        <div class="alert alert-info">
-            <i class="bi bi-info-circle"></i> La fonctionnalité de planning sera bientôt disponible. Vous pourrez gérer et visualiser les activités de votre camping sur une base hebdomadaire.
-        </div>
-    </div>
-    
+
     <div class="planning-controls">
         <h2 class="planning-subtitle">Planning hebdomadaire</h2>
         
         <div class="planning-navigation">
-            <a href="#" class="btn btn-nav">
+            <a href="{{ path('app_planning_index', {'week': previousWeek|date('Y-m-d')}) }}" class="btn btn-nav">
                 <i class="bi bi-chevron-left"></i> Semaine précédente
             </a>
             
             <div class="current-week">
                 {{ weekDisplay }}
+                {% if "now"|date_modify("monday this week")|date("Y-m-d") != startOfWeek|date("Y-m-d") %}
+                    <a href="{{ path('app_planning_index') }}" class="btn btn-sm btn-outline-primary ms-2">
+                        <i class="bi bi-calendar-week"></i> Revenir à la semaine actuelle
+                    </a>
+                {% else %}
+                    <span class="badge bg-success ms-2">Semaine actuelle</span>
+                {% endif %}
             </div>
             
-            <a href="#" class="btn btn-nav">
+            <a href="{{ path('app_planning_index', {'week': nextWeek|date('Y-m-d')}) }}" class="btn btn-nav">
                 Semaine suivante <i class="bi bi-chevron-right"></i>
             </a>
         </div>
@@ -45,238 +46,50 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="time-slot">8h - 9h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">9h - 10h</td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #8edce6">
-                            <div class="activity-name">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #8edce6">
-                            <div class="activity-name">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #8edce6">
-                            <div class="activity-name">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">10h - 11h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #c7f2a4">
-                            <div class="activity-name">Brunch du dimanche</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="time-slot">11h - 12h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #ffcc80">
-                            <div class="activity-name">Atelier cuisine pour enfants</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #ffcc80">
-                            <div class="activity-name">Atelier cuisine pour enfants</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #b39ddb">
-                            <div class="activity-name">Concours de pétanque</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">12h - 13h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">13h - 14h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">14h - 15h</td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #c7f2a4">
-                            <div class="activity-name">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #c7f2a4">
-                            <div class="activity-name">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #c7f2a4">
-                            <div class="activity-name">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #c7f2a4">
-                            <div class="activity-name">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #c7f2a4">
-                            <div class="activity-name">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">15h - 16h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #b39ddb">
-                            <div class="activity-name">Tournoi de ping-pong</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">16h - 17h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #90caf9">
-                            <div class="activity-name">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #90caf9">
-                            <div class="activity-name">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #90caf9">
-                            <div class="activity-name">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">17h - 18h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">18h - 19h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">19h - 20h</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #ef9a9a">
-                            <div class="activity-name">Soirée barbecue</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                </tr>
-                <tr>
-                    <td class="time-slot">Soirée</td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell"></td>
-                    <td class="activity-cell has-activity">
-                        <div class="activity-item" style="background-color: #ef9a9a">
-                            <div class="activity-name">Soirée dansante</div>
-                        </div>
-                    </td>
-                    <td class="activity-cell"></td>
-                </tr>
+                {% if activities|default([])|length > 0 %}
+                    {% for timeLabel, days in planningGrid %}
+                        <tr>
+                            <td class="time-slot">{{ timeLabel }}</td>
+                            {% for day in 1..7 %}
+                                <td class="activity-cell{% if days[day]|length > 0 %} has-activity{% endif %}">
+                                    {% if days[day]|length > 0 %}
+                                        {% set activity = days[day][0] %}
+                                        <div class="activity-item" style="background-color: {{ activity.category.color }}">
+                                            <div class="activity-name">{{ activity.name }}</div>
+                                        </div>
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="8" class="text-center py-5">
+                            <div class="alert alert-info mb-0">
+                                <i class="bi bi-info-circle me-2"></i>
+                                Aucune activité n'est planifiée pour cette semaine. Utilisez le bouton "Ajouter une activité" pour commencer à planifier.
+                            </div>
+                        </td>
+                    </tr>
+                {% endif %}
             </tbody>
         </table>
     </div>
     
     <div class="filters-container mt-4 mb-3">
         <div class="activity-filters">
-            <div class="filter-item">
-                <span class="color-dot" style="background-color: #8edce6"></span>
-                <span class="filter-label">Bien-être</span>
-            </div>
-            <div class="filter-item">
-                <span class="color-dot" style="background-color: #c7f2a4"></span>
-                <span class="filter-label">Enfants</span>
-            </div>
-            <div class="filter-item">
-                <span class="color-dot" style="background-color: #ffcc80"></span>
-                <span class="filter-label">Cuisine</span>
-            </div>
-            <div class="filter-item">
-                <span class="color-dot" style="background-color: #b39ddb"></span>
-                <span class="filter-label">Sport</span>
-            </div>
-            <div class="filter-item">
-                <span class="color-dot" style="background-color: #ef9a9a"></span>
-                <span class="filter-label">Animation</span>
-            </div>
-            <div class="filter-item">
-                <span class="color-dot" style="background-color: #90caf9"></span>
-                <span class="filter-label">Aquagym</span>
-            </div>
+            {% if categories|default([])|length > 0 %}
+                {% for category in categories %}
+                    <div class="filter-item">
+                        <span class="color-dot" style="background-color: {{ category.color }}"></span>
+                        <span class="filter-label">{{ category.name }}</span>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="text-center w-100">
+                    <p class="text-muted">Aucune catégorie d'activité n'est disponible pour le moment.</p>
+                </div>
+            {% endif %}
         </div>
     </div>
     
@@ -301,11 +114,9 @@
                         <select class="form-select" id="activitySelect">
                             <option selected disabled>Sélectionner une activité existante</option>
                             <option value="new">Créer une nouvelle activité</option>
-                            <option value="1">Aquagym</option>
-                            <option value="2">Yoga au bord de la piscine</option>
-                            <option value="3">Club enfants</option>
-                            <option value="4">Tournoi de ping-pong</option>
-                            <option value="5">Soirée dansante</option>
+                            {% for activity in existingActivities|default([]) %}
+                                <option value="{{ activity.id }}">{{ activity.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     
@@ -325,13 +136,6 @@
                             <option value="new">Créer une nouvelle catégorie</option>
                             {% for category in categories|default([]) %}
                                 <option value="{{ category.id }}" data-color="{{ category.color }}">{{ category.name }}</option>
-                            {% else %}
-                                <option value="1" data-color="#8edce6">Bien-être</option>
-                                <option value="2" data-color="#c7f2a4">Enfants</option>
-                                <option value="3" data-color="#ffcc80">Cuisine</option>
-                                <option value="4" data-color="#b39ddb">Sport</option>
-                                <option value="5" data-color="#ef9a9a">Animation</option>
-                                <option value="6" data-color="#90caf9">Aquagym</option>
                             {% endfor %}
                         </select>
                     </div>

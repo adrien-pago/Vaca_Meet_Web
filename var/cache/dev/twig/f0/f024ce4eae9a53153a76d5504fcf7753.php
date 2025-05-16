@@ -99,29 +99,45 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
         // line 6
         yield "<div class=\"planning-container\">
     <h1 class=\"planning-title\">Planning des Activités</h1>
-    
-    <div class=\"info-message mb-4\">
-        <div class=\"alert alert-info\">
-            <i class=\"bi bi-info-circle\"></i> La fonctionnalité de planning sera bientôt disponible. Vous pourrez gérer et visualiser les activités de votre camping sur une base hebdomadaire.
-        </div>
-    </div>
-    
+
     <div class=\"planning-controls\">
         <h2 class=\"planning-subtitle\">Planning hebdomadaire</h2>
         
         <div class=\"planning-navigation\">
-            <a href=\"#\" class=\"btn btn-nav\">
+            <a href=\"";
+        // line 13
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index", ["week" => $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["previousWeek"]) || array_key_exists("previousWeek", $context) ? $context["previousWeek"] : (function () { throw new RuntimeError('Variable "previousWeek" does not exist.', 13, $this->source); })()), "Y-m-d")]), "html", null, true);
+        yield "\" class=\"btn btn-nav\">
                 <i class=\"bi bi-chevron-left\"></i> Semaine précédente
             </a>
             
             <div class=\"current-week\">
                 ";
-        // line 24
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 24, $this->source); })()), "html", null, true);
+        // line 18
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 18, $this->source); })()), "html", null, true);
         yield "
-            </div>
+                ";
+        // line 19
+        if (($this->extensions['Twig\Extension\CoreExtension']->formatDate($this->extensions['Twig\Extension\CoreExtension']->modifyDate("now", "monday this week"), "Y-m-d") != $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 19, $this->source); })()), "Y-m-d"))) {
+            // line 20
+            yield "                    <a href=\"";
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index");
+            yield "\" class=\"btn btn-sm btn-outline-primary ms-2\">
+                        <i class=\"bi bi-calendar-week\"></i> Revenir à la semaine actuelle
+                    </a>
+                ";
+        } else {
+            // line 24
+            yield "                    <span class=\"badge bg-success ms-2\">Semaine actuelle</span>
+                ";
+        }
+        // line 26
+        yield "            </div>
             
-            <a href=\"#\" class=\"btn btn-nav\">
+            <a href=\"";
+        // line 28
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_index", ["week" => $this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["nextWeek"]) || array_key_exists("nextWeek", $context) ? $context["nextWeek"] : (function () { throw new RuntimeError('Variable "nextWeek" does not exist.', 28, $this->source); })()), "Y-m-d")]), "html", null, true);
+        yield "\" class=\"btn btn-nav\">
                 Semaine suivante <i class=\"bi bi-chevron-right\"></i>
             </a>
         </div>
@@ -142,239 +158,118 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class=\"time-slot\">8h - 9h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">9h - 10h</td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #8edce6\">
-                            <div class=\"activity-name\">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #8edce6\">
-                            <div class=\"activity-name\">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #8edce6\">
-                            <div class=\"activity-name\">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">10h - 11h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Brunch du dimanche</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">11h - 12h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #ffcc80\">
-                            <div class=\"activity-name\">Atelier cuisine pour enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #ffcc80\">
-                            <div class=\"activity-name\">Atelier cuisine pour enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #b39ddb\">
-                            <div class=\"activity-name\">Concours de pétanque</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">12h - 13h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">13h - 14h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">14h - 15h</td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">15h - 16h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #b39ddb\">
-                            <div class=\"activity-name\">Tournoi de ping-pong</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">16h - 17h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #90caf9\">
-                            <div class=\"activity-name\">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #90caf9\">
-                            <div class=\"activity-name\">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #90caf9\">
-                            <div class=\"activity-name\">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">17h - 18h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">18h - 19h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">19h - 20h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #ef9a9a\">
-                            <div class=\"activity-name\">Soirée barbecue</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">Soirée</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #ef9a9a\">
-                            <div class=\"activity-name\">Soirée dansante</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-            </tbody>
+                ";
+        // line 49
+        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("activities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 49, $this->source); })()), [])) : ([]))) > 0)) {
+            // line 50
+            yield "                    ";
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["planningGrid"]) || array_key_exists("planningGrid", $context) ? $context["planningGrid"] : (function () { throw new RuntimeError('Variable "planningGrid" does not exist.', 50, $this->source); })()));
+            foreach ($context['_seq'] as $context["timeLabel"] => $context["days"]) {
+                // line 51
+                yield "                        <tr>
+                            <td class=\"time-slot\">";
+                // line 52
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["timeLabel"], "html", null, true);
+                yield "</td>
+                            ";
+                // line 53
+                $context['_parent'] = $context;
+                $context['_seq'] = CoreExtension::ensureTraversable(range(1, 7));
+                foreach ($context['_seq'] as $context["_key"] => $context["day"]) {
+                    // line 54
+                    yield "                                <td class=\"activity-cell";
+                    if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 54)) > 0)) {
+                        yield " has-activity";
+                    }
+                    yield "\">
+                                    ";
+                    // line 55
+                    if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 55)) > 0)) {
+                        // line 56
+                        yield "                                        ";
+                        $context["activity"] = CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["days"], $context["day"], [], "array", false, false, false, 56), 0, [], "array", false, false, false, 56);
+                        // line 57
+                        yield "                                        <div class=\"activity-item\" style=\"background-color: ";
+                        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 57, $this->source); })()), "category", [], "any", false, false, false, 57), "color", [], "any", false, false, false, 57), "html", null, true);
+                        yield "\">
+                                            <div class=\"activity-name\">";
+                        // line 58
+                        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["activity"]) || array_key_exists("activity", $context) ? $context["activity"] : (function () { throw new RuntimeError('Variable "activity" does not exist.', 58, $this->source); })()), "name", [], "any", false, false, false, 58), "html", null, true);
+                        yield "</div>
+                                        </div>
+                                    ";
+                    }
+                    // line 61
+                    yield "                                </td>
+                            ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_key'], $context['day'], $context['_parent']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 63
+                yield "                        </tr>
+                    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['timeLabel'], $context['days'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 65
+            yield "                ";
+        } else {
+            // line 66
+            yield "                    <tr>
+                        <td colspan=\"8\" class=\"text-center py-5\">
+                            <div class=\"alert alert-info mb-0\">
+                                <i class=\"bi bi-info-circle me-2\"></i>
+                                Aucune activité n'est planifiée pour cette semaine. Utilisez le bouton \"Ajouter une activité\" pour commencer à planifier.
+                            </div>
+                        </td>
+                    </tr>
+                ";
+        }
+        // line 75
+        yield "            </tbody>
         </table>
     </div>
     
     <div class=\"filters-container mt-4 mb-3\">
         <div class=\"activity-filters\">
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #8edce6\"></span>
-                <span class=\"filter-label\">Bien-être</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #c7f2a4\"></span>
-                <span class=\"filter-label\">Enfants</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #ffcc80\"></span>
-                <span class=\"filter-label\">Cuisine</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #b39ddb\"></span>
-                <span class=\"filter-label\">Sport</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #ef9a9a\"></span>
-                <span class=\"filter-label\">Animation</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #90caf9\"></span>
-                <span class=\"filter-label\">Aquagym</span>
-            </div>
-        </div>
+            ";
+        // line 81
+        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 81, $this->source); })()), [])) : ([]))) > 0)) {
+            // line 82
+            yield "                ";
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 82, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+                // line 83
+                yield "                    <div class=\"filter-item\">
+                        <span class=\"color-dot\" style=\"background-color: ";
+                // line 84
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 84), "html", null, true);
+                yield "\"></span>
+                        <span class=\"filter-label\">";
+                // line 85
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 85), "html", null, true);
+                yield "</span>
+                    </div>
+                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['category'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 88
+            yield "            ";
+        } else {
+            // line 89
+            yield "                <div class=\"text-center w-100\">
+                    <p class=\"text-muted\">Aucune catégorie d'activité n'est disponible pour le moment.</p>
+                </div>
+            ";
+        }
+        // line 93
+        yield "        </div>
     </div>
     
     <div class=\"add-activity-container\">
@@ -394,7 +289,7 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
             </div>
             <div class=\"modal-body\">
                 <form id=\"addActivityForm\" data-url=\"";
-        // line 299
+        // line 112
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_add_activity");
         yield "\" data-token=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("activity_token"), "html", null, true);
@@ -403,12 +298,24 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                         <select class=\"form-select\" id=\"activitySelect\">
                             <option selected disabled>Sélectionner une activité existante</option>
                             <option value=\"new\">Créer une nouvelle activité</option>
-                            <option value=\"1\">Aquagym</option>
-                            <option value=\"2\">Yoga au bord de la piscine</option>
-                            <option value=\"3\">Club enfants</option>
-                            <option value=\"4\">Tournoi de ping-pong</option>
-                            <option value=\"5\">Soirée dansante</option>
-                        </select>
+                            ";
+        // line 117
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("existingActivities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["existingActivities"]) || array_key_exists("existingActivities", $context) ? $context["existingActivities"] : (function () { throw new RuntimeError('Variable "existingActivities" does not exist.', 117, $this->source); })()), [])) : ([])));
+        foreach ($context['_seq'] as $context["_key"] => $context["activity"]) {
+            // line 118
+            yield "                                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 118), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 118), "html", null, true);
+            yield "</option>
+                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['activity'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 120
+        yield "                        </select>
                     </div>
                     
                     <!-- Champs pour nouvelle activité (visible seulement si \"Créer nouvelle activité\" est sélectionné) -->
@@ -426,37 +333,24 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                             <option selected disabled>Sélectionner une catégorie</option>
                             <option value=\"new\">Créer une nouvelle catégorie</option>
                             ";
-        // line 326
+        // line 137
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 326, $this->source); })()), [])) : ([])));
-        $context['_iterated'] = false;
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 137, $this->source); })()), [])) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 327
+            // line 138
             yield "                                <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 327), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 138), "html", null, true);
             yield "\" data-color=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 327), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 138), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 327), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 138), "html", null, true);
             yield "</option>
-                            ";
-            $context['_iterated'] = true;
-        }
-        // line 328
-        if (!$context['_iterated']) {
-            // line 329
-            yield "                                <option value=\"1\" data-color=\"#8edce6\">Bien-être</option>
-                                <option value=\"2\" data-color=\"#c7f2a4\">Enfants</option>
-                                <option value=\"3\" data-color=\"#ffcc80\">Cuisine</option>
-                                <option value=\"4\" data-color=\"#b39ddb\">Sport</option>
-                                <option value=\"5\" data-color=\"#ef9a9a\">Animation</option>
-                                <option value=\"6\" data-color=\"#90caf9\">Aquagym</option>
                             ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_key'], $context['category'], $context['_parent'], $context['_iterated']);
+        unset($context['_seq'], $context['_key'], $context['category'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 336
+        // line 140
         yield "                        </select>
                     </div>
                     
@@ -475,8 +369,8 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                     <div class=\"row mb-3\">
                         <div class=\"col-4\">
                             <input type=\"date\" class=\"form-control form-control-lg custom-height\" id=\"activityDate\" value=\"";
-        // line 353
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 353, $this->source); })()), "Y-m-d"), "html", null, true);
+        // line 157
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 157, $this->source); })()), "Y-m-d"), "html", null, true);
         yield "\">
                         </div>
                         <div class=\"col-4\">
@@ -602,7 +496,7 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  479 => 353,  460 => 336,  448 => 329,  446 => 328,  435 => 327,  430 => 326,  398 => 299,  120 => 24,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  373 => 157,  354 => 140,  341 => 138,  337 => 137,  318 => 120,  307 => 118,  303 => 117,  293 => 112,  272 => 93,  266 => 89,  263 => 88,  254 => 85,  250 => 84,  247 => 83,  242 => 82,  240 => 81,  232 => 75,  221 => 66,  218 => 65,  211 => 63,  204 => 61,  198 => 58,  193 => 57,  190 => 56,  188 => 55,  181 => 54,  177 => 53,  173 => 52,  170 => 51,  165 => 50,  163 => 49,  139 => 28,  135 => 26,  131 => 24,  123 => 20,  121 => 19,  117 => 18,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -614,26 +508,27 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
 {% block body %}
 <div class=\"planning-container\">
     <h1 class=\"planning-title\">Planning des Activités</h1>
-    
-    <div class=\"info-message mb-4\">
-        <div class=\"alert alert-info\">
-            <i class=\"bi bi-info-circle\"></i> La fonctionnalité de planning sera bientôt disponible. Vous pourrez gérer et visualiser les activités de votre camping sur une base hebdomadaire.
-        </div>
-    </div>
-    
+
     <div class=\"planning-controls\">
         <h2 class=\"planning-subtitle\">Planning hebdomadaire</h2>
         
         <div class=\"planning-navigation\">
-            <a href=\"#\" class=\"btn btn-nav\">
+            <a href=\"{{ path('app_planning_index', {'week': previousWeek|date('Y-m-d')}) }}\" class=\"btn btn-nav\">
                 <i class=\"bi bi-chevron-left\"></i> Semaine précédente
             </a>
             
             <div class=\"current-week\">
                 {{ weekDisplay }}
+                {% if \"now\"|date_modify(\"monday this week\")|date(\"Y-m-d\") != startOfWeek|date(\"Y-m-d\") %}
+                    <a href=\"{{ path('app_planning_index') }}\" class=\"btn btn-sm btn-outline-primary ms-2\">
+                        <i class=\"bi bi-calendar-week\"></i> Revenir à la semaine actuelle
+                    </a>
+                {% else %}
+                    <span class=\"badge bg-success ms-2\">Semaine actuelle</span>
+                {% endif %}
             </div>
             
-            <a href=\"#\" class=\"btn btn-nav\">
+            <a href=\"{{ path('app_planning_index', {'week': nextWeek|date('Y-m-d')}) }}\" class=\"btn btn-nav\">
                 Semaine suivante <i class=\"bi bi-chevron-right\"></i>
             </a>
         </div>
@@ -654,238 +549,50 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class=\"time-slot\">8h - 9h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">9h - 10h</td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #8edce6\">
-                            <div class=\"activity-name\">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #8edce6\">
-                            <div class=\"activity-name\">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #8edce6\">
-                            <div class=\"activity-name\">Yoga au bord de la piscine</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">10h - 11h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Brunch du dimanche</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">11h - 12h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #ffcc80\">
-                            <div class=\"activity-name\">Atelier cuisine pour enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #ffcc80\">
-                            <div class=\"activity-name\">Atelier cuisine pour enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #b39ddb\">
-                            <div class=\"activity-name\">Concours de pétanque</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">12h - 13h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">13h - 14h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">14h - 15h</td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #c7f2a4\">
-                            <div class=\"activity-name\">Club enfants</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">15h - 16h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #b39ddb\">
-                            <div class=\"activity-name\">Tournoi de ping-pong</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">16h - 17h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #90caf9\">
-                            <div class=\"activity-name\">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #90caf9\">
-                            <div class=\"activity-name\">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #90caf9\">
-                            <div class=\"activity-name\">Aquagym</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">17h - 18h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">18h - 19h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">19h - 20h</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #ef9a9a\">
-                            <div class=\"activity-name\">Soirée barbecue</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
-                <tr>
-                    <td class=\"time-slot\">Soirée</td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell\"></td>
-                    <td class=\"activity-cell has-activity\">
-                        <div class=\"activity-item\" style=\"background-color: #ef9a9a\">
-                            <div class=\"activity-name\">Soirée dansante</div>
-                        </div>
-                    </td>
-                    <td class=\"activity-cell\"></td>
-                </tr>
+                {% if activities|default([])|length > 0 %}
+                    {% for timeLabel, days in planningGrid %}
+                        <tr>
+                            <td class=\"time-slot\">{{ timeLabel }}</td>
+                            {% for day in 1..7 %}
+                                <td class=\"activity-cell{% if days[day]|length > 0 %} has-activity{% endif %}\">
+                                    {% if days[day]|length > 0 %}
+                                        {% set activity = days[day][0] %}
+                                        <div class=\"activity-item\" style=\"background-color: {{ activity.category.color }}\">
+                                            <div class=\"activity-name\">{{ activity.name }}</div>
+                                        </div>
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan=\"8\" class=\"text-center py-5\">
+                            <div class=\"alert alert-info mb-0\">
+                                <i class=\"bi bi-info-circle me-2\"></i>
+                                Aucune activité n'est planifiée pour cette semaine. Utilisez le bouton \"Ajouter une activité\" pour commencer à planifier.
+                            </div>
+                        </td>
+                    </tr>
+                {% endif %}
             </tbody>
         </table>
     </div>
     
     <div class=\"filters-container mt-4 mb-3\">
         <div class=\"activity-filters\">
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #8edce6\"></span>
-                <span class=\"filter-label\">Bien-être</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #c7f2a4\"></span>
-                <span class=\"filter-label\">Enfants</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #ffcc80\"></span>
-                <span class=\"filter-label\">Cuisine</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #b39ddb\"></span>
-                <span class=\"filter-label\">Sport</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #ef9a9a\"></span>
-                <span class=\"filter-label\">Animation</span>
-            </div>
-            <div class=\"filter-item\">
-                <span class=\"color-dot\" style=\"background-color: #90caf9\"></span>
-                <span class=\"filter-label\">Aquagym</span>
-            </div>
+            {% if categories|default([])|length > 0 %}
+                {% for category in categories %}
+                    <div class=\"filter-item\">
+                        <span class=\"color-dot\" style=\"background-color: {{ category.color }}\"></span>
+                        <span class=\"filter-label\">{{ category.name }}</span>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class=\"text-center w-100\">
+                    <p class=\"text-muted\">Aucune catégorie d'activité n'est disponible pour le moment.</p>
+                </div>
+            {% endif %}
         </div>
     </div>
     
@@ -910,11 +617,9 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                         <select class=\"form-select\" id=\"activitySelect\">
                             <option selected disabled>Sélectionner une activité existante</option>
                             <option value=\"new\">Créer une nouvelle activité</option>
-                            <option value=\"1\">Aquagym</option>
-                            <option value=\"2\">Yoga au bord de la piscine</option>
-                            <option value=\"3\">Club enfants</option>
-                            <option value=\"4\">Tournoi de ping-pong</option>
-                            <option value=\"5\">Soirée dansante</option>
+                            {% for activity in existingActivities|default([]) %}
+                                <option value=\"{{ activity.id }}\">{{ activity.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     
@@ -934,13 +639,6 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                             <option value=\"new\">Créer une nouvelle catégorie</option>
                             {% for category in categories|default([]) %}
                                 <option value=\"{{ category.id }}\" data-color=\"{{ category.color }}\">{{ category.name }}</option>
-                            {% else %}
-                                <option value=\"1\" data-color=\"#8edce6\">Bien-être</option>
-                                <option value=\"2\" data-color=\"#c7f2a4\">Enfants</option>
-                                <option value=\"3\" data-color=\"#ffcc80\">Cuisine</option>
-                                <option value=\"4\" data-color=\"#b39ddb\">Sport</option>
-                                <option value=\"5\" data-color=\"#ef9a9a\">Animation</option>
-                                <option value=\"6\" data-color=\"#90caf9\">Aquagym</option>
                             {% endfor %}
                         </select>
                     </div>
