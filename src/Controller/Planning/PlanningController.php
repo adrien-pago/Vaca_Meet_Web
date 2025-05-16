@@ -2,132 +2,110 @@
 
 namespace App\Controller\Planning;
 
-use App\Entity\Planning;
-use App\Entity\User;
-use App\Form\PlanningType;
-use App\Repository\PlanningRepository;
+use App\Entity\Activity;
+use App\Entity\ActivityCategory;
+use App\Repository\ActivityCategoryRepository;
+use App\Repository\ActivityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 #[Route('/planning')]
 class PlanningController extends AbstractController
 {
-    #[Route('/', name: 'app_planning_index', methods: ['GET'])]
-    public function index(PlanningRepository $planningRepository): Response
+    #[Route('/', name: 'app_planning_index')]
+    public function index(ActivityRepository $activityRepository, ActivityCategoryRepository $categoryRepository): Response
     {
-        $user = $this->getUser();
+        // Récupérer les catégories pour l'affichage et la sélection
+        $categories = $categoryRepository->findAll();
+        
+        // Récupérer le début de la semaine actuelle (lundi)
+        $startOfWeek = new \DateTime();
+        $startOfWeek->modify('monday this week');
+        $startOfWeek->setTime(0, 0, 0);
+        
+        // Récupérer la fin de la semaine (dimanche)
+        $endOfWeek = clone $startOfWeek;
+        $endOfWeek->modify('+6 days');
+        
+        // Formater la période affichée (ex: "12 - 18 Mai 2025")
+        $weekDisplay = $startOfWeek->format('d') . ' - ' . $endOfWeek->format('d F Y');
+        
+        // Récupérer les activités de la semaine
+        $activities = $activityRepository->findByWeek($startOfWeek);
+        
+        return $this->render('planning/index.html.twig', [
+            'weekDisplay' => $weekDisplay,
+            'startOfWeek' => $startOfWeek,
+            'categories' => $categories,
+            'activities' => $activities,
+        ]);
+    }
 
-        if ($user instanceof User) {
-            $plannings = $planningRepository->findBy(['user' => $user]);
-            
-            // Also include plannings from any service accounts
-            foreach ($user->getServiceAccounts() as $serviceAccount) {
-                $servicePlannings = $planningRepository->findBy(['serviceAccount' => $serviceAccount]);
-                $plannings = array_merge($plannings, $servicePlannings);
+    #[Route('/add-activity', name: 'app_planning_add_activity', methods: ['POST'])]
+    public function addActivity(
+        Request $request, 
+        EntityManagerInterface $entityManager,
+        ActivityRepository $activityRepository,
+        ActivityCategoryRepository $categoryRepository
+    ): JsonResponse {
+        $data = json_decode($request->getContent(), true);
+        
+        // Vérifier si on utilise une catégorie existante ou si on en crée une nouvelle
+        if (isset($data['category_id']) && $data['category_id'] !== 'new') {
+            $category = $categoryRepository->find($data['category_id']);
+            if (!$category) {
+                return $this->json(['success' => false, 'message' => 'Catégorie non trouvée'], Response::HTTP_BAD_REQUEST);
             }
         } else {
-            // For service accounts, only show their own plannings
-            $plannings = $planningRepository->findBy(['serviceAccount' => $user]);
-        }
-
-        // Group plannings by day of week
-        $planningsByDay = [];
-        foreach ([1, 2, 3, 4, 5, 6, 7] as $day) {
-            $planningsByDay[$day] = [];
-        }
-
-        foreach ($plannings as $planning) {
-            $planningsByDay[$planning->getDayOfWeek()][] = $planning;
-        }
-
-        return $this->render('planning/index.html.twig', [
-            'plannings_by_day' => $planningsByDay,
-            'days' => [
-                1 => 'Lundi',
-                2 => 'Mardi',
-                3 => 'Mercredi',
-                4 => 'Jeudi',
-                5 => 'Vendredi',
-                6 => 'Samedi',
-                7 => 'Dimanche',
-            ],
-        ]);
-    }
-
-    #[Route('/new', name: 'app_planning_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PlanningRepository $planningRepository): Response
-    {
-        $planning = new Planning();
-        
-        $user = $this->getUser();
-        
-        // Set default user/service account based on current user
-        if ($user instanceof User) {
-            $planning->setUser($user);
-        } else {
-            $planning->setServiceAccount($user);
+            // Créer une nouvelle catégorie
+            $category = new ActivityCategory();
+            $category->setName($data['category_name']);
+            $category->setColor($data['category_color']);
+            $entityManager->persist($category);
         }
         
-        $form = $this->createForm(PlanningType::class, $planning);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $planningRepository->save($planning, true);
-
-            $this->addFlash('success', 'Le planning a été créé avec succès.');
-            return $this->redirectToRoute('app_planning_index', [], Response::HTTP_SEE_OTHER);
+        // Créer une nouvelle activité
+        $activity = new Activity();
+        $activity->setName($data['activity_name']);
+        $activity->setDescription($data['description'] ?? null);
+        $activity->setCategory($category);
+        
+        // Définir la date et heure de début et de fin
+        $startDateTime = new \DateTime($data['date'] . ' ' . $data['start_time']);
+        $endDateTime = new \DateTime($data['date'] . ' ' . $data['end_time']);
+        $activity->setStartDateTime($startDateTime);
+        $activity->setEndDateTime($endDateTime);
+        
+        // Définir les autres propriétés
+        // Les champs location et maxParticipants sont désormais toujours null
+        $activity->setLocation(null);
+        $activity->setMaxParticipants(null);
+        $activity->setIsRecurring($data['is_recurring'] ?? false);
+        
+        // Si l'activité est récurrente, gérer les jours de récurrence
+        if (isset($data['is_recurring']) && $data['is_recurring']) {
+            $activity->setRecurringDays($data['recurring_days'] ?? []);
         }
-
-        return $this->render('planning/new.html.twig', [
-            'planning' => $planning,
-            'form' => $form,
+        
+        // Persister et flusher
+        $entityManager->persist($activity);
+        $entityManager->flush();
+        
+        return $this->json([
+            'success' => true,
+            'message' => 'Activité ajoutée avec succès',
+            'activity' => [
+                'id' => $activity->getId(),
+                'name' => $activity->getName(),
+                'category' => $activity->getCategory()->getName(),
+                'color' => $activity->getCategory()->getColor(),
+                'start' => $activity->getStartDateTime()->format('Y-m-d H:i:s'),
+                'end' => $activity->getEndDateTime()->format('Y-m-d H:i:s'),
+            ]
         ]);
-    }
-
-    #[Route('/{id}', name: 'app_planning_show', methods: ['GET'])]
-    public function show(Planning $planning): Response
-    {
-        $this->denyAccessUnlessGranted('VIEW', $planning);
-
-        return $this->render('planning/show.html.twig', [
-            'planning' => $planning,
-        ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_planning_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Planning $planning, PlanningRepository $planningRepository): Response
-    {
-        $this->denyAccessUnlessGranted('EDIT', $planning);
-
-        $form = $this->createForm(PlanningType::class, $planning);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $planningRepository->save($planning, true);
-
-            $this->addFlash('success', 'Le planning a été mis à jour avec succès.');
-            return $this->redirectToRoute('app_planning_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('planning/edit.html.twig', [
-            'planning' => $planning,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'app_planning_delete', methods: ['POST'])]
-    public function delete(Request $request, Planning $planning, PlanningRepository $planningRepository): Response
-    {
-        $this->denyAccessUnlessGranted('DELETE', $planning);
-
-        if ($this->isCsrfTokenValid('delete'.$planning->getId(), $request->request->get('_token'))) {
-            $planningRepository->remove($planning, true);
-            $this->addFlash('success', 'Le planning a été supprimé avec succès.');
-        }
-
-        return $this->redirectToRoute('app_planning_index', [], Response::HTTP_SEE_OTHER);
     }
 } 

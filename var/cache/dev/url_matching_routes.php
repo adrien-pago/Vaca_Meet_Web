@@ -19,8 +19,8 @@ return [
         '/account/delete' => [[['_route' => 'app_account_delete', '_controller' => 'App\\Controller\\Account\\AccountController::delete'], null, ['POST' => 0], null, false, false, null]],
         '/account/theme' => [[['_route' => 'app_theme_edit', '_controller' => 'App\\Controller\\Account\\ThemeController::edit'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
-        '/planning' => [[['_route' => 'app_planning_index', '_controller' => 'App\\Controller\\Planning\\PlanningController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/planning/new' => [[['_route' => 'app_planning_new', '_controller' => 'App\\Controller\\Planning\\PlanningController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/planning' => [[['_route' => 'app_planning_index', '_controller' => 'App\\Controller\\Planning\\PlanningController::index'], null, null, null, true, false, null]],
+        '/planning/add-activity' => [[['_route' => 'app_planning_add_activity', '_controller' => 'App\\Controller\\Planning\\PlanningController::addActivity'], null, ['POST' => 0], null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/verify/email' => [[['_route' => 'app_verify_email', '_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
@@ -49,15 +49,10 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/planning/([^/]++)(?'
-                    .'|(*:190)'
-                    .'|/edit(*:203)'
-                    .'|(*:211)'
-                .')'
                 .'|/service/([^/]++)(?'
-                    .'|(*:240)'
-                    .'|/edit(*:253)'
-                    .'|(*:261)'
+                    .'|(*:189)'
+                    .'|/edit(*:202)'
+                    .'|(*:210)'
                 .')'
             .')/?$}sDu',
     ],
@@ -69,12 +64,9 @@ return [
         135 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         148 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         158 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        190 => [[['_route' => 'app_planning_show', '_controller' => 'App\\Controller\\Planning\\PlanningController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        203 => [[['_route' => 'app_planning_edit', '_controller' => 'App\\Controller\\Planning\\PlanningController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        211 => [[['_route' => 'app_planning_delete', '_controller' => 'App\\Controller\\Planning\\PlanningController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        240 => [[['_route' => 'app_service_show', '_controller' => 'App\\Controller\\Service\\ServiceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        253 => [[['_route' => 'app_service_edit', '_controller' => 'App\\Controller\\Service\\ServiceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        261 => [
+        189 => [[['_route' => 'app_service_show', '_controller' => 'App\\Controller\\Service\\ServiceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        202 => [[['_route' => 'app_service_edit', '_controller' => 'App\\Controller\\Service\\ServiceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        210 => [
             [['_route' => 'app_service_delete', '_controller' => 'App\\Controller\\Service\\ServiceController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

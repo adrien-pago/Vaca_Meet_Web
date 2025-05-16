@@ -244,6 +244,6 @@ class __TwigTemplate_891efa7af31c62654c0b414255400145 extends Template
         </div>
     </div>
 </div>
-{% endblock %} ", "service/index.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-Application-Web-SYMFONY\\templates\\service\\index.html.twig");
+{% endblock %} ", "service/index.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-WEB\\templates\\service\\index.html.twig");
     }
 }

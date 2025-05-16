@@ -431,6 +431,14 @@
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Repository\ActivityCategoryRepository" class="App\Repository\ActivityCategoryRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\PlanningRepository" class="App\Repository\PlanningRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -487,7 +495,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.D4Ledu_"/>
+      <argument type="service" id=".service_locator.mTT5H6s"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3147,7 +3155,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.D4Ledu_"/>
+      <argument type="service" id=".service_locator.mTT5H6s"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -4802,7 +4810,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.gj1bGI5"/>
+      <argument type="service" id=".service_locator.3OkiX2b"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -7030,6 +7038,10 @@
     <service id=".abstract.instanceof.App\Form\ThemeType" class="App\Form\ThemeType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActivityCategoryRepository" class="App\Repository\ActivityCategoryRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ActivityCategoryRepository" class="App\Repository\ActivityCategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ActivityRepository" class="App\Repository\ActivityRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PlanningRepository" class="App\Repository\PlanningRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\PlanningRepository" class="App\Repository\PlanningRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ServiceAccountRepository" class="App\Repository\ServiceAccountRepository" autowire="true" abstract="true"/>
@@ -7481,23 +7493,19 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.Ra4rpqC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.HhEvZkc" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="planningRepository" type="service_closure" id="App\Repository\PlanningRepository"/>
+        <argument key="activityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
+        <argument key="categoryRepository" type="service_closure" id="App\Repository\ActivityCategoryRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.kIhFha6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.aFJ.Gog" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="planning" type="service_closure" id=".errored..service_locator.kIhFha6.App\Entity\Planning"/>
-      </argument>
-    </service>
-    <service id=".service_locator.9.2i6tj" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="planning" type="service_closure" id=".errored..service_locator.9.2i6tj.App\Entity\Planning"/>
-        <argument key="planningRepository" type="service_closure" id="App\Repository\PlanningRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="activityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
+        <argument key="categoryRepository" type="service_closure" id="App\Repository\ActivityCategoryRepository"/>
       </argument>
     </service>
     <service id=".service_locator.KAWHxDW" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7554,7 +7562,7 @@
         <argument key="serviceAccountRepository" type="service_closure" id="App\Repository\ServiceAccountRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.D4Ledu_" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.mTT5H6s" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5"/>
@@ -7565,11 +7573,8 @@
         <argument key="App\Controller\Account\AccountController::edit" type="service_closure" id=".service_locator.gwZhsUg"/>
         <argument key="App\Controller\Account\AccountController::delete" type="service_closure" id=".service_locator.egipcEH"/>
         <argument key="App\Controller\Account\ThemeController::edit" type="service_closure" id=".service_locator.egipcEH"/>
-        <argument key="App\Controller\Planning\PlanningController::index" type="service_closure" id=".service_locator.Ra4rpqC"/>
-        <argument key="App\Controller\Planning\PlanningController::new" type="service_closure" id=".service_locator.Ra4rpqC"/>
-        <argument key="App\Controller\Planning\PlanningController::show" type="service_closure" id=".service_locator.kIhFha6"/>
-        <argument key="App\Controller\Planning\PlanningController::edit" type="service_closure" id=".service_locator.9.2i6tj"/>
-        <argument key="App\Controller\Planning\PlanningController::delete" type="service_closure" id=".service_locator.9.2i6tj"/>
+        <argument key="App\Controller\Planning\PlanningController::index" type="service_closure" id=".service_locator.HhEvZkc"/>
+        <argument key="App\Controller\Planning\PlanningController::addActivity" type="service_closure" id=".service_locator.aFJ.Gog"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.KAWHxDW"/>
         <argument key="App\Controller\RegistrationController::verifyUserEmail" type="service_closure" id=".service_locator.d8rsN5P"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.3QECKYg"/>
@@ -7586,11 +7591,8 @@
         <argument key="App\Controller\Account\AccountController:edit" type="service_closure" id=".service_locator.gwZhsUg"/>
         <argument key="App\Controller\Account\AccountController:delete" type="service_closure" id=".service_locator.egipcEH"/>
         <argument key="App\Controller\Account\ThemeController:edit" type="service_closure" id=".service_locator.egipcEH"/>
-        <argument key="App\Controller\Planning\PlanningController:index" type="service_closure" id=".service_locator.Ra4rpqC"/>
-        <argument key="App\Controller\Planning\PlanningController:new" type="service_closure" id=".service_locator.Ra4rpqC"/>
-        <argument key="App\Controller\Planning\PlanningController:show" type="service_closure" id=".service_locator.kIhFha6"/>
-        <argument key="App\Controller\Planning\PlanningController:edit" type="service_closure" id=".service_locator.9.2i6tj"/>
-        <argument key="App\Controller\Planning\PlanningController:delete" type="service_closure" id=".service_locator.9.2i6tj"/>
+        <argument key="App\Controller\Planning\PlanningController:index" type="service_closure" id=".service_locator.HhEvZkc"/>
+        <argument key="App\Controller\Planning\PlanningController:addActivity" type="service_closure" id=".service_locator.aFJ.Gog"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.KAWHxDW"/>
         <argument key="App\Controller\RegistrationController:verifyUserEmail" type="service_closure" id=".service_locator.d8rsN5P"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.3QECKYg"/>
@@ -7886,9 +7888,11 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service_closure" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.gj1bGI5" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.3OkiX2b" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\ActivityCategoryRepository" type="service_closure" id="App\Repository\ActivityCategoryRepository"/>
+        <argument key="App\Repository\ActivityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
         <argument key="App\Repository\PlanningRepository" type="service_closure" id="App\Repository\PlanningRepository"/>
         <argument key="App\Repository\ServiceAccountRepository" type="service_closure" id="App\Repository\ServiceAccountRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
@@ -8634,12 +8638,6 @@
     <service id="debug.security.event_dispatcher.main.inner" class="Symfony\Component\EventDispatcher\EventDispatcher"/>
     <service id=".errored..service_locator.zHyJIs5.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.zHyJIs5&quot;: it needs an instance of &quot;Symfony\Component\Config\Loader\LoaderInterface&quot; but this type has been excluded from autowiring."/>
-    </service>
-    <service id=".errored..service_locator.kIhFha6.App\Entity\Planning" class="App\Entity\Planning">
-      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.kIhFha6&quot;: it needs an instance of &quot;App\Entity\Planning&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
-    </service>
-    <service id=".errored..service_locator.9.2i6tj.App\Entity\Planning" class="App\Entity\Planning">
-      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.9.2i6tj&quot;: it needs an instance of &quot;App\Entity\Planning&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".errored..service_locator.gTWkntZ.App\Entity\ServiceAccount" class="App\Entity\ServiceAccount">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.gTWkntZ&quot;: it needs an instance of &quot;App\Entity\ServiceAccount&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
@@ -9735,7 +9733,7 @@
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.D4Ledu_"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.mTT5H6s"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -9776,9 +9774,8 @@
     <service id=".service_locator.hNMhKaf" alias=".service_locator.OzEre6h"/>
     <service id=".service_locator.3FvTMDX" alias=".service_locator.gwZhsUg"/>
     <service id=".service_locator.5Vd5JYV" alias=".service_locator.egipcEH"/>
-    <service id=".service_locator._wGhcp3" alias=".service_locator.Ra4rpqC"/>
-    <service id=".service_locator.v.14bSr" alias=".service_locator.kIhFha6"/>
-    <service id=".service_locator.mPzP9qy" alias=".service_locator.9.2i6tj"/>
+    <service id=".service_locator.qaG7e4z" alias=".service_locator.HhEvZkc"/>
+    <service id=".service_locator.QY3G4hp" alias=".service_locator.aFJ.Gog"/>
     <service id=".service_locator.113K_6l" alias=".service_locator.KAWHxDW"/>
     <service id=".service_locator.tep9BSC" alias=".service_locator.d8rsN5P"/>
     <service id=".service_locator.Nrz07Zz" alias=".service_locator.3QECKYg"/>
