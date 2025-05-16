@@ -248,4 +248,83 @@ class PlanningController extends AbstractController
         
         return $this->json($responseData);
     }
+    
+    #[Route('/edit-activity', name: 'app_planning_edit_activity', methods: ['POST'])]
+    public function editActivity(
+        Request $request, 
+        EntityManagerInterface $entityManager,
+        ActivityRepository $activityRepository,
+        ActivityCategoryRepository $categoryRepository
+    ): JsonResponse {
+        $data = json_decode($request->getContent(), true);
+        
+        // Vérifier si l'activité existe
+        $activity = $activityRepository->find($data['activity_id']);
+        if (!$activity) {
+            return $this->json(['success' => false, 'message' => 'Activité non trouvée'], Response::HTTP_NOT_FOUND);
+        }
+        
+        // Vérifier si on utilise une catégorie existante ou si on en crée une nouvelle
+        if (isset($data['category_id']) && $data['category_id'] !== 'new') {
+            $category = $categoryRepository->find($data['category_id']);
+            if (!$category) {
+                return $this->json(['success' => false, 'message' => 'Catégorie non trouvée'], Response::HTTP_BAD_REQUEST);
+            }
+        } else {
+            // Créer une nouvelle catégorie
+            $category = new ActivityCategory();
+            $category->setName($data['category_name']);
+            $category->setColor($data['category_color']);
+            $entityManager->persist($category);
+        }
+        
+        // Mettre à jour les propriétés de l'activité
+        $activity->setName($data['activity_name']);
+        $activity->setDescription($data['description'] ?? null);
+        $activity->setCategory($category);
+        
+        // Mettre à jour la date et l'heure de début et de fin
+        $startDateTime = new \DateTime($data['date'] . ' ' . $data['start_time']);
+        $endDateTime = new \DateTime($data['date'] . ' ' . $data['end_time']);
+        $activity->setStartDateTime($startDateTime);
+        $activity->setEndDateTime($endDateTime);
+        
+        // Persister les changements
+        $entityManager->flush();
+        
+        return $this->json([
+            'success' => true,
+            'message' => 'Activité modifiée avec succès',
+            'activity' => [
+                'id' => $activity->getId(),
+                'name' => $activity->getName(),
+                'category' => $activity->getCategory()->getName(),
+                'color' => $activity->getCategory()->getColor(),
+                'start' => $activity->getStartDateTime()->format('Y-m-d H:i:s'),
+                'end' => $activity->getEndDateTime()->format('Y-m-d H:i:s'),
+            ]
+        ]);
+    }
+    
+    #[Route('/delete-activity/{id}', name: 'app_planning_delete_activity', methods: ['DELETE'])]
+    public function deleteActivity(
+        int $id,
+        EntityManagerInterface $entityManager,
+        ActivityRepository $activityRepository
+    ): JsonResponse {
+        // Vérifier si l'activité existe
+        $activity = $activityRepository->find($id);
+        if (!$activity) {
+            return $this->json(['success' => false, 'message' => 'Activité non trouvée'], Response::HTTP_NOT_FOUND);
+        }
+        
+        // Supprimer l'activité
+        $entityManager->remove($activity);
+        $entityManager->flush();
+        
+        return $this->json([
+            'success' => true,
+            'message' => 'Activité supprimée avec succès'
+        ]);
+    }
 } 

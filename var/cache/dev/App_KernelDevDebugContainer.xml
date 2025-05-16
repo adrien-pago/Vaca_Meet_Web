@@ -495,7 +495,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.mTT5H6s"/>
+      <argument type="service" id=".service_locator.I3lvlFa"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3155,7 +3155,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.mTT5H6s"/>
+      <argument type="service" id=".service_locator.I3lvlFa"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -7508,6 +7508,13 @@
         <argument key="categoryRepository" type="service_closure" id="App\Repository\ActivityCategoryRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.PyxXrWw" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="activityRepository" type="service_closure" id="App\Repository\ActivityRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.KAWHxDW" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7562,7 +7569,7 @@
         <argument key="serviceAccountRepository" type="service_closure" id="App\Repository\ServiceAccountRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.mTT5H6s" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.I3lvlFa" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5"/>
@@ -7575,6 +7582,8 @@
         <argument key="App\Controller\Account\ThemeController::edit" type="service_closure" id=".service_locator.egipcEH"/>
         <argument key="App\Controller\Planning\PlanningController::index" type="service_closure" id=".service_locator.HhEvZkc"/>
         <argument key="App\Controller\Planning\PlanningController::addActivity" type="service_closure" id=".service_locator.aFJ.Gog"/>
+        <argument key="App\Controller\Planning\PlanningController::editActivity" type="service_closure" id=".service_locator.aFJ.Gog"/>
+        <argument key="App\Controller\Planning\PlanningController::deleteActivity" type="service_closure" id=".service_locator.PyxXrWw"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.KAWHxDW"/>
         <argument key="App\Controller\RegistrationController::verifyUserEmail" type="service_closure" id=".service_locator.d8rsN5P"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.3QECKYg"/>
@@ -7593,6 +7602,8 @@
         <argument key="App\Controller\Account\ThemeController:edit" type="service_closure" id=".service_locator.egipcEH"/>
         <argument key="App\Controller\Planning\PlanningController:index" type="service_closure" id=".service_locator.HhEvZkc"/>
         <argument key="App\Controller\Planning\PlanningController:addActivity" type="service_closure" id=".service_locator.aFJ.Gog"/>
+        <argument key="App\Controller\Planning\PlanningController:editActivity" type="service_closure" id=".service_locator.aFJ.Gog"/>
+        <argument key="App\Controller\Planning\PlanningController:deleteActivity" type="service_closure" id=".service_locator.PyxXrWw"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.KAWHxDW"/>
         <argument key="App\Controller\RegistrationController:verifyUserEmail" type="service_closure" id=".service_locator.d8rsN5P"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.3QECKYg"/>
@@ -9733,7 +9744,7 @@
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.mTT5H6s"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.I3lvlFa"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -9776,6 +9787,7 @@
     <service id=".service_locator.5Vd5JYV" alias=".service_locator.egipcEH"/>
     <service id=".service_locator.qaG7e4z" alias=".service_locator.HhEvZkc"/>
     <service id=".service_locator.QY3G4hp" alias=".service_locator.aFJ.Gog"/>
+    <service id=".service_locator.8Ow3Xkp" alias=".service_locator.PyxXrWw"/>
     <service id=".service_locator.113K_6l" alias=".service_locator.KAWHxDW"/>
     <service id=".service_locator.tep9BSC" alias=".service_locator.d8rsN5P"/>
     <service id=".service_locator.Nrz07Zz" alias=".service_locator.3QECKYg"/>

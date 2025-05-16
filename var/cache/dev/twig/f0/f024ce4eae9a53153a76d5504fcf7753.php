@@ -276,6 +276,9 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
         <a href=\"#\" class=\"btn btn-add-activity\" data-bs-toggle=\"modal\" data-bs-target=\"#addActivityModal\">
             <i class=\"bi bi-plus-circle\"></i> Ajouter une activité
         </a>
+        <a href=\"#\" class=\"btn btn-manage-activity ms-2\" data-bs-toggle=\"modal\" data-bs-target=\"#manageActivitiesModal\">
+            <i class=\"bi bi-gear\"></i> Gérer les activités 
+        </a>
     </div>
 </div>
 
@@ -289,7 +292,7 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
             </div>
             <div class=\"modal-body\">
                 <form id=\"addActivityForm\" data-url=\"";
-        // line 112
+        // line 115
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_add_activity");
         yield "\" data-token=\"";
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("activity_token"), "html", null, true);
@@ -299,22 +302,22 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                             <option selected disabled>Sélectionner une activité existante</option>
                             <option value=\"new\">Créer une nouvelle activité</option>
                             ";
-        // line 117
+        // line 120
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("existingActivities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["existingActivities"]) || array_key_exists("existingActivities", $context) ? $context["existingActivities"] : (function () { throw new RuntimeError('Variable "existingActivities" does not exist.', 117, $this->source); })()), [])) : ([])));
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("existingActivities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["existingActivities"]) || array_key_exists("existingActivities", $context) ? $context["existingActivities"] : (function () { throw new RuntimeError('Variable "existingActivities" does not exist.', 120, $this->source); })()), [])) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["activity"]) {
-            // line 118
+            // line 121
             yield "                                <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 118), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 121), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 118), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 121), "html", null, true);
             yield "</option>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['activity'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 120
+        // line 123
         yield "                        </select>
                     </div>
                     
@@ -333,24 +336,24 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                             <option selected disabled>Sélectionner une catégorie</option>
                             <option value=\"new\">Créer une nouvelle catégorie</option>
                             ";
-        // line 137
+        // line 140
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 137, $this->source); })()), [])) : ([])));
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 140, $this->source); })()), [])) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 138
+            // line 141
             yield "                                <option value=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 138), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 141), "html", null, true);
             yield "\" data-color=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 138), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 141), "html", null, true);
             yield "\">";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 138), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 141), "html", null, true);
             yield "</option>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['category'], $context['_parent']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 140
+        // line 143
         yield "                        </select>
                     </div>
                     
@@ -369,8 +372,8 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
                     <div class=\"row mb-3\">
                         <div class=\"col-4\">
                             <input type=\"date\" class=\"form-control form-control-lg custom-height\" id=\"activityDate\" value=\"";
-        // line 157
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 157, $this->source); })()), "Y-m-d"), "html", null, true);
+        // line 160
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate((isset($context["startOfWeek"]) || array_key_exists("startOfWeek", $context) ? $context["startOfWeek"] : (function () { throw new RuntimeError('Variable "startOfWeek" does not exist.', 160, $this->source); })()), "Y-m-d"), "html", null, true);
         yield "\">
                         </div>
                         <div class=\"col-4\">
@@ -465,6 +468,311 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
         </div>
     </div>
 </div>
+
+<!-- Modal Gestion des Activités -->
+<div class=\"modal fade\" id=\"manageActivitiesModal\" tabindex=\"-1\" aria-labelledby=\"manageActivitiesModalLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog modal-xl\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"manageActivitiesModalLabel\">Gérer les activités de la semaine du ";
+        // line 260
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["weekDisplay"]) || array_key_exists("weekDisplay", $context) ? $context["weekDisplay"] : (function () { throw new RuntimeError('Variable "weekDisplay" does not exist.', 260, $this->source); })()), "html", null, true);
+        yield "</h5>
+                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Fermer\"></button>
+            </div>
+            <div class=\"modal-body\">
+                ";
+        // line 264
+        if ((Twig\Extension\CoreExtension::length($this->env->getCharset(), ((array_key_exists("activities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 264, $this->source); })()), [])) : ([]))) > 0)) {
+            // line 265
+            yield "                    <div class=\"table-responsive\">
+                        <table class=\"table table-striped table-bordered\">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Catégorie</th>
+                                    <th>Couleur</th>
+                                    <th>Jour</th>
+                                    <th>Début</th>
+                                    <th>Fin</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ";
+            // line 279
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable((isset($context["activities"]) || array_key_exists("activities", $context) ? $context["activities"] : (function () { throw new RuntimeError('Variable "activities" does not exist.', 279, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["activity"]) {
+                // line 280
+                yield "                                <tr data-activity-id=\"";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 280), "html", null, true);
+                yield "\">
+                                    <td>";
+                // line 281
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 281), "html", null, true);
+                yield "</td>
+                                    <td>";
+                // line 282
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 282), "name", [], "any", false, false, false, 282), "html", null, true);
+                yield "</td>
+                                    <td>
+                                        <span class=\"color-dot\" style=\"background-color: ";
+                // line 284
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 284), "color", [], "any", false, false, false, 284), "html", null, true);
+                yield "\"></span>
+                                        <span class=\"color-code\">";
+                // line 285
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 285), "color", [], "any", false, false, false, 285), "html", null, true);
+                yield "</span>
+                                    </td>
+                                    <td>";
+                // line 287
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(Twig\Extension\CoreExtension::capitalize($this->env->getCharset(), $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 287), "l"), [], "messages")), "html", null, true);
+                yield "</td>
+                                    <td>";
+                // line 288
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 288), "H:i"), "html", null, true);
+                yield "</td>
+                                    <td>";
+                // line 289
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "endDateTime", [], "any", false, false, false, 289), "H:i"), "html", null, true);
+                yield "</td>
+                                    <td>
+                                        <button type=\"button\" class=\"btn btn-sm btn-primary edit-activity-btn\" 
+                                                data-activity-id=\"";
+                // line 292
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 292), "html", null, true);
+                yield "\"
+                                                data-activity-name=\"";
+                // line 293
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 293), "html", null, true);
+                yield "\"
+                                                data-activity-description=\"";
+                // line 294
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "description", [], "any", false, false, false, 294), "html", null, true);
+                yield "\"
+                                                data-activity-category=\"";
+                // line 295
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "category", [], "any", false, false, false, 295), "id", [], "any", false, false, false, 295), "html", null, true);
+                yield "\"
+                                                data-activity-date=\"";
+                // line 296
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 296), "Y-m-d"), "html", null, true);
+                yield "\"
+                                                data-activity-start=\"";
+                // line 297
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "startDateTime", [], "any", false, false, false, 297), "H:i"), "html", null, true);
+                yield "\"
+                                                data-activity-end=\"";
+                // line 298
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Twig\Extension\CoreExtension']->formatDate(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "endDateTime", [], "any", false, false, false, 298), "H:i"), "html", null, true);
+                yield "\">
+                                            <i class=\"bi bi-pencil\"></i> Modifier
+                                        </button>
+                                        <button type=\"button\" class=\"btn btn-sm btn-danger delete-activity-btn ms-1\" 
+                                                data-activity-id=\"";
+                // line 302
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 302), "html", null, true);
+                yield "\"
+                                                data-activity-name=\"";
+                // line 303
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 303), "html", null, true);
+                yield "\">
+                                            <i class=\"bi bi-trash\"></i> Supprimer
+                                        </button>
+                                    </td>
+                                </tr>
+                                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['activity'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 309
+            yield "                            </tbody>
+                        </table>
+                    </div>
+                ";
+        } else {
+            // line 313
+            yield "                    <div class=\"alert alert-info\">
+                        <i class=\"bi bi-info-circle me-2\"></i>
+                        Aucune activité n'est planifiée pour cette semaine.
+                    </div>
+                ";
+        }
+        // line 318
+        yield "            </div>
+            <div class=\"modal-footer\">
+                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Modification d'Activité -->
+<div class=\"modal fade\" id=\"editActivityModal\" tabindex=\"-1\" aria-labelledby=\"editActivityModalLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog modal-lg\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"editActivityModalLabel\">Modifier une activité</h5>
+                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Fermer\"></button>
+            </div>
+            <div class=\"modal-body\">
+                <form id=\"editActivityForm\" data-url=\"";
+        // line 335
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_planning_edit_activity");
+        yield "\">
+                    <input type=\"hidden\" id=\"editActivityId\">
+                    
+                    <div class=\"mb-3\">
+                        <select class=\"form-select\" id=\"editActivitySelect\">
+                            <option selected disabled>Sélectionner une activité existante</option>
+                            <option value=\"new\">Créer une nouvelle activité</option>
+                            ";
+        // line 342
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("existingActivities", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["existingActivities"]) || array_key_exists("existingActivities", $context) ? $context["existingActivities"] : (function () { throw new RuntimeError('Variable "existingActivities" does not exist.', 342, $this->source); })()), [])) : ([])));
+        foreach ($context['_seq'] as $context["_key"] => $context["activity"]) {
+            // line 343
+            yield "                                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "id", [], "any", false, false, false, 343), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["activity"], "name", [], "any", false, false, false, 343), "html", null, true);
+            yield "</option>
+                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['activity'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 345
+        yield "                        </select>
+                    </div>
+                    
+                    <div id=\"editActivityFields\" style=\"display: none;\">
+                        <div class=\"mb-3\">
+                            <input type=\"text\" class=\"form-control\" id=\"editActivityName\" placeholder=\"Nom de l'activité\" required>
+                        </div>
+                        <div class=\"mb-3\">
+                            <textarea class=\"form-control\" id=\"editActivityDescription\" rows=\"2\" placeholder=\"Description de l'activité...\"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class=\"mb-3\">
+                        <select class=\"form-select\" id=\"editCategorySelect\" required>
+                            <option selected disabled>Sélectionner une catégorie</option>
+                            <option value=\"new\">Créer une nouvelle catégorie</option>
+                            ";
+        // line 361
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(((array_key_exists("categories", $context)) ? (Twig\Extension\CoreExtension::default((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 361, $this->source); })()), [])) : ([])));
+        foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+            // line 362
+            yield "                                <option value=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "id", [], "any", false, false, false, 362), "html", null, true);
+            yield "\" data-color=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "color", [], "any", false, false, false, 362), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 362), "html", null, true);
+            yield "</option>
+                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['category'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 364
+        yield "                        </select>
+                    </div>
+                    
+                    <!-- Champs pour nouvelle catégorie (visible seulement si \"Créer nouvelle catégorie\" est sélectionné) -->
+                    <div id=\"editNewCategoryFields\" style=\"display: none;\" class=\"mb-3\">
+                        <div class=\"row g-3\">
+                            <div class=\"col-9\">
+                                <input type=\"text\" class=\"form-control\" id=\"editCategoryName\" placeholder=\"Nom de la catégorie\">
+                            </div>
+                            <div class=\"col-3\">
+                                <input type=\"color\" class=\"form-control form-control-color w-100\" id=\"editCategoryColor\" value=\"#8edce6\">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class=\"row mb-3\">
+                        <div class=\"col-4\">
+                            <input type=\"date\" class=\"form-control form-control-lg custom-height\" id=\"editActivityDate\" required>
+                        </div>
+                        <div class=\"col-4\">
+                            <select class=\"form-select form-select-lg custom-height\" id=\"editStartTime\" required>
+                                <option value=\"08:00\">08:00</option>
+                                <option value=\"09:00\">09:00</option>
+                                <option value=\"10:00\">10:00</option>
+                                <option value=\"11:00\">11:00</option>
+                                <option value=\"12:00\">12:00</option>
+                                <option value=\"13:00\">13:00</option>
+                                <option value=\"14:00\">14:00</option>
+                                <option value=\"15:00\">15:00</option>
+                                <option value=\"16:00\">16:00</option>
+                                <option value=\"17:00\">17:00</option>
+                                <option value=\"18:00\">18:00</option>
+                                <option value=\"19:00\">19:00</option>
+                                <option value=\"20:00\">20:00</option>
+                            </select>
+                        </div>
+                        <div class=\"col-4\">
+                            <select class=\"form-select form-select-lg custom-height\" id=\"editEndTime\" required>
+                                <option value=\"09:00\">09:00</option>
+                                <option value=\"10:00\">10:00</option>
+                                <option value=\"11:00\">11:00</option>
+                                <option value=\"12:00\">12:00</option>
+                                <option value=\"13:00\">13:00</option>
+                                <option value=\"14:00\">14:00</option>
+                                <option value=\"15:00\">15:00</option>
+                                <option value=\"16:00\">16:00</option>
+                                <option value=\"17:00\">17:00</option>
+                                <option value=\"18:00\">18:00</option>
+                                <option value=\"19:00\">19:00</option>
+                                <option value=\"20:00\">20:00</option>
+                                <option value=\"22:00\">22:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class=\"alert alert-success\" id=\"editSuccessMessage\" style=\"display: none;\">
+                        Activité modifiée avec succès !
+                    </div>
+                    <div class=\"alert alert-danger\" id=\"editErrorMessage\" style=\"display: none;\">
+                        Une erreur est survenue lors de la modification de l'activité.
+                    </div>
+                </form>
+            </div>
+            <div class=\"modal-footer\">
+                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Annuler</button>
+                <button type=\"button\" class=\"btn btn-primary\" id=\"saveEditActivity\">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Confirmation de Suppression -->
+<div class=\"modal fade\" id=\"deleteConfirmModal\" tabindex=\"-1\" aria-labelledby=\"deleteConfirmModalLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"deleteConfirmModalLabel\">Confirmer la suppression</h5>
+                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Fermer\"></button>
+            </div>
+            <div class=\"modal-body\">
+                <p>Êtes-vous sûr de vouloir supprimer l'activité \"<span id=\"deleteActivityName\"></span>\" ?</p>
+                <p class=\"text-danger\">Cette action est irréversible.</p>
+                <input type=\"hidden\" id=\"deleteActivityId\">
+            </div>
+            <div class=\"modal-footer\">
+                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Annuler</button>
+                <button type=\"button\" class=\"btn btn-danger\" id=\"confirmDeleteActivity\">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -496,7 +804,7 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  373 => 157,  354 => 140,  341 => 138,  337 => 137,  318 => 120,  307 => 118,  303 => 117,  293 => 112,  272 => 93,  266 => 89,  263 => 88,  254 => 85,  250 => 84,  247 => 83,  242 => 82,  240 => 81,  232 => 75,  221 => 66,  218 => 65,  211 => 63,  204 => 61,  198 => 58,  193 => 57,  190 => 56,  188 => 55,  181 => 54,  177 => 53,  173 => 52,  170 => 51,  165 => 50,  163 => 49,  139 => 28,  135 => 26,  131 => 24,  123 => 20,  121 => 19,  117 => 18,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  684 => 364,  671 => 362,  667 => 361,  649 => 345,  638 => 343,  634 => 342,  624 => 335,  605 => 318,  598 => 313,  592 => 309,  580 => 303,  576 => 302,  569 => 298,  565 => 297,  561 => 296,  557 => 295,  553 => 294,  549 => 293,  545 => 292,  539 => 289,  535 => 288,  531 => 287,  526 => 285,  522 => 284,  517 => 282,  513 => 281,  508 => 280,  504 => 279,  488 => 265,  486 => 264,  479 => 260,  376 => 160,  357 => 143,  344 => 141,  340 => 140,  321 => 123,  310 => 121,  306 => 120,  296 => 115,  272 => 93,  266 => 89,  263 => 88,  254 => 85,  250 => 84,  247 => 83,  242 => 82,  240 => 81,  232 => 75,  221 => 66,  218 => 65,  211 => 63,  204 => 61,  198 => 58,  193 => 57,  190 => 56,  188 => 55,  181 => 54,  177 => 53,  173 => 52,  170 => 51,  165 => 50,  163 => 49,  139 => 28,  135 => 26,  131 => 24,  123 => 20,  121 => 19,  117 => 18,  109 => 13,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -599,6 +907,9 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
     <div class=\"add-activity-container\">
         <a href=\"#\" class=\"btn btn-add-activity\" data-bs-toggle=\"modal\" data-bs-target=\"#addActivityModal\">
             <i class=\"bi bi-plus-circle\"></i> Ajouter une activité
+        </a>
+        <a href=\"#\" class=\"btn btn-manage-activity ms-2\" data-bs-toggle=\"modal\" data-bs-target=\"#manageActivitiesModal\">
+            <i class=\"bi bi-gear\"></i> Gérer les activités 
         </a>
     </div>
 </div>
@@ -751,6 +1062,208 @@ class __TwigTemplate_fd20db40a0e6dff3667d5a71802a2093 extends Template
         </div>
     </div>
 </div>
+
+<!-- Modal Gestion des Activités -->
+<div class=\"modal fade\" id=\"manageActivitiesModal\" tabindex=\"-1\" aria-labelledby=\"manageActivitiesModalLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog modal-xl\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"manageActivitiesModalLabel\">Gérer les activités de la semaine du {{ weekDisplay }}</h5>
+                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Fermer\"></button>
+            </div>
+            <div class=\"modal-body\">
+                {% if activities|default([])|length > 0 %}
+                    <div class=\"table-responsive\">
+                        <table class=\"table table-striped table-bordered\">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Catégorie</th>
+                                    <th>Couleur</th>
+                                    <th>Jour</th>
+                                    <th>Début</th>
+                                    <th>Fin</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for activity in activities %}
+                                <tr data-activity-id=\"{{ activity.id }}\">
+                                    <td>{{ activity.name }}</td>
+                                    <td>{{ activity.category.name }}</td>
+                                    <td>
+                                        <span class=\"color-dot\" style=\"background-color: {{ activity.category.color }}\"></span>
+                                        <span class=\"color-code\">{{ activity.category.color }}</span>
+                                    </td>
+                                    <td>{{ activity.startDateTime|date('l')|trans({}, 'messages')|capitalize }}</td>
+                                    <td>{{ activity.startDateTime|date('H:i') }}</td>
+                                    <td>{{ activity.endDateTime|date('H:i') }}</td>
+                                    <td>
+                                        <button type=\"button\" class=\"btn btn-sm btn-primary edit-activity-btn\" 
+                                                data-activity-id=\"{{ activity.id }}\"
+                                                data-activity-name=\"{{ activity.name }}\"
+                                                data-activity-description=\"{{ activity.description }}\"
+                                                data-activity-category=\"{{ activity.category.id }}\"
+                                                data-activity-date=\"{{ activity.startDateTime|date('Y-m-d') }}\"
+                                                data-activity-start=\"{{ activity.startDateTime|date('H:i') }}\"
+                                                data-activity-end=\"{{ activity.endDateTime|date('H:i') }}\">
+                                            <i class=\"bi bi-pencil\"></i> Modifier
+                                        </button>
+                                        <button type=\"button\" class=\"btn btn-sm btn-danger delete-activity-btn ms-1\" 
+                                                data-activity-id=\"{{ activity.id }}\"
+                                                data-activity-name=\"{{ activity.name }}\">
+                                            <i class=\"bi bi-trash\"></i> Supprimer
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class=\"alert alert-info\">
+                        <i class=\"bi bi-info-circle me-2\"></i>
+                        Aucune activité n'est planifiée pour cette semaine.
+                    </div>
+                {% endif %}
+            </div>
+            <div class=\"modal-footer\">
+                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Modification d'Activité -->
+<div class=\"modal fade\" id=\"editActivityModal\" tabindex=\"-1\" aria-labelledby=\"editActivityModalLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog modal-lg\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"editActivityModalLabel\">Modifier une activité</h5>
+                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Fermer\"></button>
+            </div>
+            <div class=\"modal-body\">
+                <form id=\"editActivityForm\" data-url=\"{{ path('app_planning_edit_activity') }}\">
+                    <input type=\"hidden\" id=\"editActivityId\">
+                    
+                    <div class=\"mb-3\">
+                        <select class=\"form-select\" id=\"editActivitySelect\">
+                            <option selected disabled>Sélectionner une activité existante</option>
+                            <option value=\"new\">Créer une nouvelle activité</option>
+                            {% for activity in existingActivities|default([]) %}
+                                <option value=\"{{ activity.id }}\">{{ activity.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div id=\"editActivityFields\" style=\"display: none;\">
+                        <div class=\"mb-3\">
+                            <input type=\"text\" class=\"form-control\" id=\"editActivityName\" placeholder=\"Nom de l'activité\" required>
+                        </div>
+                        <div class=\"mb-3\">
+                            <textarea class=\"form-control\" id=\"editActivityDescription\" rows=\"2\" placeholder=\"Description de l'activité...\"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class=\"mb-3\">
+                        <select class=\"form-select\" id=\"editCategorySelect\" required>
+                            <option selected disabled>Sélectionner une catégorie</option>
+                            <option value=\"new\">Créer une nouvelle catégorie</option>
+                            {% for category in categories|default([]) %}
+                                <option value=\"{{ category.id }}\" data-color=\"{{ category.color }}\">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Champs pour nouvelle catégorie (visible seulement si \"Créer nouvelle catégorie\" est sélectionné) -->
+                    <div id=\"editNewCategoryFields\" style=\"display: none;\" class=\"mb-3\">
+                        <div class=\"row g-3\">
+                            <div class=\"col-9\">
+                                <input type=\"text\" class=\"form-control\" id=\"editCategoryName\" placeholder=\"Nom de la catégorie\">
+                            </div>
+                            <div class=\"col-3\">
+                                <input type=\"color\" class=\"form-control form-control-color w-100\" id=\"editCategoryColor\" value=\"#8edce6\">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class=\"row mb-3\">
+                        <div class=\"col-4\">
+                            <input type=\"date\" class=\"form-control form-control-lg custom-height\" id=\"editActivityDate\" required>
+                        </div>
+                        <div class=\"col-4\">
+                            <select class=\"form-select form-select-lg custom-height\" id=\"editStartTime\" required>
+                                <option value=\"08:00\">08:00</option>
+                                <option value=\"09:00\">09:00</option>
+                                <option value=\"10:00\">10:00</option>
+                                <option value=\"11:00\">11:00</option>
+                                <option value=\"12:00\">12:00</option>
+                                <option value=\"13:00\">13:00</option>
+                                <option value=\"14:00\">14:00</option>
+                                <option value=\"15:00\">15:00</option>
+                                <option value=\"16:00\">16:00</option>
+                                <option value=\"17:00\">17:00</option>
+                                <option value=\"18:00\">18:00</option>
+                                <option value=\"19:00\">19:00</option>
+                                <option value=\"20:00\">20:00</option>
+                            </select>
+                        </div>
+                        <div class=\"col-4\">
+                            <select class=\"form-select form-select-lg custom-height\" id=\"editEndTime\" required>
+                                <option value=\"09:00\">09:00</option>
+                                <option value=\"10:00\">10:00</option>
+                                <option value=\"11:00\">11:00</option>
+                                <option value=\"12:00\">12:00</option>
+                                <option value=\"13:00\">13:00</option>
+                                <option value=\"14:00\">14:00</option>
+                                <option value=\"15:00\">15:00</option>
+                                <option value=\"16:00\">16:00</option>
+                                <option value=\"17:00\">17:00</option>
+                                <option value=\"18:00\">18:00</option>
+                                <option value=\"19:00\">19:00</option>
+                                <option value=\"20:00\">20:00</option>
+                                <option value=\"22:00\">22:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class=\"alert alert-success\" id=\"editSuccessMessage\" style=\"display: none;\">
+                        Activité modifiée avec succès !
+                    </div>
+                    <div class=\"alert alert-danger\" id=\"editErrorMessage\" style=\"display: none;\">
+                        Une erreur est survenue lors de la modification de l'activité.
+                    </div>
+                </form>
+            </div>
+            <div class=\"modal-footer\">
+                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Annuler</button>
+                <button type=\"button\" class=\"btn btn-primary\" id=\"saveEditActivity\">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Confirmation de Suppression -->
+<div class=\"modal fade\" id=\"deleteConfirmModal\" tabindex=\"-1\" aria-labelledby=\"deleteConfirmModalLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"deleteConfirmModalLabel\">Confirmer la suppression</h5>
+                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Fermer\"></button>
+            </div>
+            <div class=\"modal-body\">
+                <p>Êtes-vous sûr de vouloir supprimer l'activité \"<span id=\"deleteActivityName\"></span>\" ?</p>
+                <p class=\"text-danger\">Cette action est irréversible.</p>
+                <input type=\"hidden\" id=\"deleteActivityId\">
+            </div>
+            <div class=\"modal-footer\">
+                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Annuler</button>
+                <button type=\"button\" class=\"btn btn-danger\" id=\"confirmDeleteActivity\">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 ", "planning/index.html.twig", "C:\\Users\\PAGOA\\Documents\\GitHub\\Vaca-Meet-WEB\\templates\\planning\\index.html.twig");

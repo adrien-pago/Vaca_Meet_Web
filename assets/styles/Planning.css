@@ -172,6 +172,58 @@
     color: white;
 }
 
+.btn-manage-activity {
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn-manage-activity:hover {
+    background-color: #3f51b5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+/* Style pour le tableau de gestion des activités */
+#manageActivitiesModal .table {
+    margin-bottom: 0;
+}
+
+#manageActivitiesModal .color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+#manageActivitiesModal .color-code {
+    font-size: 0.85rem;
+    color: #666;
+    vertical-align: middle;
+}
+
+#manageActivitiesModal td {
+    vertical-align: middle;
+}
+
+/* Styles pour les modales de modification et suppression */
+#editActivityModal label {
+    font-weight: 500;
+}
+
+#deleteConfirmModal #deleteActivityName {
+    font-weight: 700;
+}
+
 #addActivityModal .form-control,
 #addActivityModal .form-select {
     height: 38px;

@@ -20,6 +20,7 @@ return [
         '/account/theme' => [[['_route' => 'app_theme_edit', '_controller' => 'App\\Controller\\Account\\ThemeController::edit'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/planning/add-activity' => [[['_route' => 'app_planning_add_activity', '_controller' => 'App\\Controller\\Planning\\PlanningController::addActivity'], null, ['POST' => 0], null, false, false, null]],
+        '/planning/edit-activity' => [[['_route' => 'app_planning_edit_activity', '_controller' => 'App\\Controller\\Planning\\PlanningController::editActivity'], null, ['POST' => 0], null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/verify/email' => [[['_route' => 'app_verify_email', '_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
@@ -48,11 +49,14 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/planning(?:/(\\d{4}-\\d{2}-\\d{2}))?(*:203)'
+                .'|/planning(?'
+                    .'|(?:/(\\d{4}-\\d{2}-\\d{2}))?(*:206)'
+                    .'|/delete\\-activity/([^/]++)(*:240)'
+                .')'
                 .'|/service/([^/]++)(?'
-                    .'|(*:231)'
-                    .'|/edit(*:244)'
-                    .'|(*:252)'
+                    .'|(*:269)'
+                    .'|/edit(*:282)'
+                    .'|(*:290)'
                 .')'
             .')/?$}sDu',
     ],
@@ -64,10 +68,11 @@ return [
         135 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         148 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         158 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        203 => [[['_route' => 'app_planning_index', 'week' => null, '_controller' => 'App\\Controller\\Planning\\PlanningController::index'], ['week'], null, null, false, true, null]],
-        231 => [[['_route' => 'app_service_show', '_controller' => 'App\\Controller\\Service\\ServiceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        244 => [[['_route' => 'app_service_edit', '_controller' => 'App\\Controller\\Service\\ServiceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        252 => [
+        206 => [[['_route' => 'app_planning_index', 'week' => null, '_controller' => 'App\\Controller\\Planning\\PlanningController::index'], ['week'], null, null, false, true, null]],
+        240 => [[['_route' => 'app_planning_delete_activity', '_controller' => 'App\\Controller\\Planning\\PlanningController::deleteActivity'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        269 => [[['_route' => 'app_service_show', '_controller' => 'App\\Controller\\Service\\ServiceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        282 => [[['_route' => 'app_service_edit', '_controller' => 'App\\Controller\\Service\\ServiceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        290 => [
             [['_route' => 'app_service_delete', '_controller' => 'App\\Controller\\Service\\ServiceController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

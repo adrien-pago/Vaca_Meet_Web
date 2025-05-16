@@ -97,6 +97,9 @@
         <a href="#" class="btn btn-add-activity" data-bs-toggle="modal" data-bs-target="#addActivityModal">
             <i class="bi bi-plus-circle"></i> Ajouter une activité
         </a>
+        <a href="#" class="btn btn-manage-activity ms-2" data-bs-toggle="modal" data-bs-target="#manageActivitiesModal">
+            <i class="bi bi-gear"></i> Gérer les activités 
+        </a>
     </div>
 </div>
 
@@ -248,5 +251,207 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Gestion des Activités -->
+<div class="modal fade" id="manageActivitiesModal" tabindex="-1" aria-labelledby="manageActivitiesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="manageActivitiesModalLabel">Gérer les activités de la semaine du {{ weekDisplay }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+            </div>
+            <div class="modal-body">
+                {% if activities|default([])|length > 0 %}
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Catégorie</th>
+                                    <th>Couleur</th>
+                                    <th>Jour</th>
+                                    <th>Début</th>
+                                    <th>Fin</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for activity in activities %}
+                                <tr data-activity-id="{{ activity.id }}">
+                                    <td>{{ activity.name }}</td>
+                                    <td>{{ activity.category.name }}</td>
+                                    <td>
+                                        <span class="color-dot" style="background-color: {{ activity.category.color }}"></span>
+                                        <span class="color-code">{{ activity.category.color }}</span>
+                                    </td>
+                                    <td>{{ activity.startDateTime|date('l')|trans({}, 'messages')|capitalize }}</td>
+                                    <td>{{ activity.startDateTime|date('H:i') }}</td>
+                                    <td>{{ activity.endDateTime|date('H:i') }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-primary edit-activity-btn" 
+                                                data-activity-id="{{ activity.id }}"
+                                                data-activity-name="{{ activity.name }}"
+                                                data-activity-description="{{ activity.description }}"
+                                                data-activity-category="{{ activity.category.id }}"
+                                                data-activity-date="{{ activity.startDateTime|date('Y-m-d') }}"
+                                                data-activity-start="{{ activity.startDateTime|date('H:i') }}"
+                                                data-activity-end="{{ activity.endDateTime|date('H:i') }}">
+                                            <i class="bi bi-pencil"></i> Modifier
+                                        </button>
+                                        <button type="button" class="btn btn-sm btn-danger delete-activity-btn ms-1" 
+                                                data-activity-id="{{ activity.id }}"
+                                                data-activity-name="{{ activity.name }}">
+                                            <i class="bi bi-trash"></i> Supprimer
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Aucune activité n'est planifiée pour cette semaine.
+                    </div>
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Modification d'Activité -->
+<div class="modal fade" id="editActivityModal" tabindex="-1" aria-labelledby="editActivityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editActivityModalLabel">Modifier une activité</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editActivityForm" data-url="{{ path('app_planning_edit_activity') }}">
+                    <input type="hidden" id="editActivityId">
+                    
+                    <div class="mb-3">
+                        <select class="form-select" id="editActivitySelect">
+                            <option selected disabled>Sélectionner une activité existante</option>
+                            <option value="new">Créer une nouvelle activité</option>
+                            {% for activity in existingActivities|default([]) %}
+                                <option value="{{ activity.id }}">{{ activity.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div id="editActivityFields" style="display: none;">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="editActivityName" placeholder="Nom de l'activité" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="editActivityDescription" rows="2" placeholder="Description de l'activité..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <select class="form-select" id="editCategorySelect" required>
+                            <option selected disabled>Sélectionner une catégorie</option>
+                            <option value="new">Créer une nouvelle catégorie</option>
+                            {% for category in categories|default([]) %}
+                                <option value="{{ category.id }}" data-color="{{ category.color }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Champs pour nouvelle catégorie (visible seulement si "Créer nouvelle catégorie" est sélectionné) -->
+                    <div id="editNewCategoryFields" style="display: none;" class="mb-3">
+                        <div class="row g-3">
+                            <div class="col-9">
+                                <input type="text" class="form-control" id="editCategoryName" placeholder="Nom de la catégorie">
+                            </div>
+                            <div class="col-3">
+                                <input type="color" class="form-control form-control-color w-100" id="editCategoryColor" value="#8edce6">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-4">
+                            <input type="date" class="form-control form-control-lg custom-height" id="editActivityDate" required>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-select form-select-lg custom-height" id="editStartTime" required>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-select form-select-lg custom-height" id="editEndTime" required>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="22:00">22:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-success" id="editSuccessMessage" style="display: none;">
+                        Activité modifiée avec succès !
+                    </div>
+                    <div class="alert alert-danger" id="editErrorMessage" style="display: none;">
+                        Une erreur est survenue lors de la modification de l'activité.
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary" id="saveEditActivity">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Confirmation de Suppression -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Confirmer la suppression</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer l'activité "<span id="deleteActivityName"></span>" ?</p>
+                <p class="text-danger">Cette action est irréversible.</p>
+                <input type="hidden" id="deleteActivityId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteActivity">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
