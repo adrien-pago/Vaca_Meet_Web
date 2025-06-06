@@ -33,12 +33,23 @@ final class Version20250516102912 extends AbstractMigration
         $this->addSql(<<<'SQL'
             CREATE TABLE activity_category (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL, color VARCHAR(7) NOT NULL, icon VARCHAR(50) DEFAULT NULL)
         SQL);
+        
+        // Vérifier si la table user_mobile existe déjà
         $this->addSql(<<<'SQL'
-            CREATE TABLE user_mobile (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username VARCHAR(180) NOT NULL, roles CLOB NOT NULL --(DC2Type:json)
+            CREATE TABLE IF NOT EXISTS user_mobile (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username VARCHAR(180) NOT NULL, roles CLOB NOT NULL --(DC2Type:json)
             , password VARCHAR(255) NOT NULL, first_name VARCHAR(255) DEFAULT NULL, last_name VARCHAR(255) DEFAULT NULL)
         SQL);
+        
+        // Ajouter les colonnes manquantes si elles n'existent pas déjà
         $this->addSql(<<<'SQL'
-            CREATE UNIQUE INDEX UNIQ_592138DDF85E0677 ON user_mobile (username)
+            ALTER TABLE user_mobile ADD COLUMN theme VARCHAR(50) DEFAULT 'default'
+        SQL);
+        $this->addSql(<<<'SQL'
+            ALTER TABLE user_mobile ADD COLUMN profile_picture VARCHAR(255) DEFAULT NULL
+        SQL);
+        
+        $this->addSql(<<<'SQL'
+            CREATE UNIQUE INDEX IF NOT EXISTS UNIQ_592138DDF85E0677 ON user_mobile (username)
         SQL);
     }
 
@@ -51,8 +62,6 @@ final class Version20250516102912 extends AbstractMigration
         $this->addSql(<<<'SQL'
             DROP TABLE activity_category
         SQL);
-        $this->addSql(<<<'SQL'
-            DROP TABLE user_mobile
-        SQL);
+        // Ne pas supprimer la table user_mobile dans down() pour éviter de perdre des données
     }
 }

@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerKemSBV2\App_KernelDevDebugContainer([
     'container.build_hash' => 'KemSBV2',
-    'container.build_id' => '0aa4f31b',
-    'container.build_time' => 1747402367,
+    'container.build_id' => 'f15971b1',
+    'container.build_time' => 1749212250,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerKemSBV2');
